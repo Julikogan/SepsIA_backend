@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import signosRoutes from './routes/signosRoutes.js';
-import resultadosRoutes from './routes/resultadosRoutes.js';
+import signosRoutes from './src/routes/SignosRouter.js';
+import resultadosRoutes from './src/routes/ResultadosRouter.js';
 import { PrismaClient } from '@prisma/client';
 
 import dotenv from 'dotenv';

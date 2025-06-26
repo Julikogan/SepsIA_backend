@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { crearSignoVital, guardarResultadoIA } from '../services/signosService.js'
+import { crearSignoVital, guardarResultadoIA } from '../services/SignosServices.js'
 
 export const registrarSignosVitales = async (req, res) => {
   try {
