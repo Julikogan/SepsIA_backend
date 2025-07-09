@@ -14,15 +14,12 @@ model User {
 }
 
 model SignosVitales {
-  id         Int        @id @default(autoincrement())
-  presion    Float
-  horario    DateTime   @default(now())
-  resultado  Resultado? // Un signo vital tiene 0 o 1 resultado
+  id      Int      @id @default(autoincrement())
+  presion Float
+  horario DateTime @default(now())
 }
 
 model Resultado {
-  id             Int          @id @default(autoincrement())
-  resultado      Float
-  id_signo_vital Int          @unique
-  signoVital     SignosVitales @relation(fields: [id_signo_vital], references: [id])
+  id        Int     @id @default(autoincrement())
+  resultado Float
 }
