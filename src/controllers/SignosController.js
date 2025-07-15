@@ -3,9 +3,9 @@ import { crearSignoVital, guardarResultadoIA } from '../services/SignosServices.
 
 export const registrarSignosVitales = async (req, res) => {
   try {
-    const { presion, horario, id_paciente } = req.body
+    const { presion, horario } = req.body
 // Validar datos obligatorios
-    if (!presion || !horario || !id_paciente) {
+    if (!presion || !horario) {
       return res.status(400).json({ error: 'Faltan datos obligatorios' });
     }
     
