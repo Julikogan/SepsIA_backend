@@ -28,7 +28,7 @@ app.use(express.json());
 
 // Deffinir rutas
 app.use('/signos-vitales', signosRoutes);
-app.use('/api', resultadosRoutes);
+app.use('/resultados', resultadosRoutes);
 
 // Root route
 app.get('/', (req, res) => {

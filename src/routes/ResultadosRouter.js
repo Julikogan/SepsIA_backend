@@ -3,6 +3,6 @@ import { getResultadoPorSignoVital } from '../controllers/ResultadosController.j
 
 const router = express.Router();
 
-router.get('/resultados/:id', getResultadoPorSignoVital);
+router.get('/:id', getResultadoPorSignoVital);
 
 export default router;
