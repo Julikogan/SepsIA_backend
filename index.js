@@ -9,10 +9,16 @@ dotenv.config();
 const app = express();
 
 // Middleware
+const corsOptions = {
+    origin: '*', // permitir acceso desde cualquier origen
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // permitir métodos HTTP
+    allowedHeaders: ['Content-Type', 'Authorization'], // permitir headers
+  };
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Deffinir rutas
+// Definir rutas
 app.use('/signos-vitales', signosRoutes);
 app.use('/resultados', resultadosRoutes);
 
@@ -21,15 +27,11 @@ app.get('/', (req, res) => {
     res.json({ message: "Se supone que funca" });
 });
 
-const startServer = async () => {
-    await main();
-    const PORT = process.env.PORT || 3000;
-    app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
-    });
-};
-
-startServer();
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 
 export default app;
 
