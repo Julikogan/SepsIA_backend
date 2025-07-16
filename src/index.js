@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import signosRoutes from './src/routes/SignosRouter.js';
-import resultadosRoutes from './src/routes/ResultadosRouter.js';
+import signosRoutes from './routes/SignosRouter.js';
+import resultadosRoutes from './routes/ResultadosRouter.js';
 
 import dotenv from 'dotenv';
 dotenv.config();
