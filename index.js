@@ -2,23 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import signosRoutes from './src/routes/SignosRouter.js';
 import resultadosRoutes from './src/routes/ResultadosRouter.js';
-import { PrismaClient } from '@prisma/client';
 
 import dotenv from 'dotenv';
 dotenv.config();
-  
-// Instantiate PrismaClient
-const prisma = new PrismaClient();
-
-// Function to connect and disconnect Prisma
-async function main() {
-    try {
-        await prisma.$connect();
-        console.log("Database connected successfully.");
-    } catch (e) {
-        console.error(e);
-    }
-}
 
 const app = express();
 
@@ -32,7 +18,7 @@ app.use('/resultados', resultadosRoutes);
 
 // Root route
 app.get('/', (req, res) => {
-    res.json({ message: "API funcionan" });
+    res.json({ message: "Se supone que funca" });
 });
 
 const startServer = async () => {
@@ -45,5 +31,5 @@ const startServer = async () => {
 
 startServer();
 
-// export default app;
+export default app;
 
