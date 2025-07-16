@@ -6,17 +6,9 @@
   "scripts": {
     "start": "node src/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Julikogan/SepsIA_backend.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Julikogan/SepsIA_backend/issues"
-  },
-  "homepage": "https://github.com/Julikogan/SepsIA_backend#readme",
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.10.1",
