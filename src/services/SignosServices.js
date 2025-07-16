@@ -1,6 +1,5 @@
-import pkg from '@prisma/client'
-const { PrismaClient } = pkg
-const prisma = new PrismaClient()
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
 export const crearSignoVital = async (presion) => {
   return await prisma.signosVitales.create({ 
@@ -9,8 +8,4 @@ export const crearSignoVital = async (presion) => {
       presion: presion,
     } 
   })
-}
-
-export const guardarResultadoIA = async (datos) => {
-  return await prisma.resultado.create({ data: datos })
 }
