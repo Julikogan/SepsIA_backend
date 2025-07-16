@@ -3,27 +3,26 @@ import { crearSignoVital, guardarResultadoIA } from '../services/SignosServices.
 
 export const registrarSignosVitales = async (req, res) => {
   try {
-    const { presion, horario } = req.body
+    const { presion } = req.body
 // Validar datos obligatorios
-    if (!presion || !horario) {
+    if ( !presion ) {
       return res.status(400).json({ error: 'Faltan datos obligatorios' });
     }
     
     console.log('Datos recibidos:', req.body);
     
-    const nuevoSigno = await crearSignoVital({
-      presion,
-      horario: new Date(horario)
-    })
+    const nuevoSigno = await crearSignoVital(presion)
 
-const respuestaIA = { data: { porcentaje: Math.random() * 100 } }
+    /*
+    const respuestaIA = { data: { porcentaje: Math.random() * 100 } }
 
     const resultado = await guardarResultadoIA({
      id_signo_vital: nuevoSigno.id,
      resultado: respuestaIA.data.porcentaje // Remove id_paciente if not needed
    });
 
-    res.status(201).json({ signo: nuevoSigno, resultado })
+   */
+    res.status(201).json({ signo: nuevoSigno })
   } catch (err) {
     console.error(err)
     res.status(500).json({ error: 'Error al registrar signos vitales' })
