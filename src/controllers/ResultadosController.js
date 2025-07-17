@@ -1,10 +1,8 @@
 import { obtenerResultadoPorSignoVital } from '../services/ResultadosServices.js';
 
 export const getResultadoPorSignoVital = async (req, res) => {
-  const idSigno = Number(req.params.id)
-
   try {
-    const resultado = await obtenerResultadoPorSignoVital(idSigno);
+    const resultado = await obtenerResultadoPorSignoVital(Number(req.params.id));
     console.log("Resultado encontrado:", resultado);
 
     if (!resultado) {
