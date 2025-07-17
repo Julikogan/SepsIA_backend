@@ -20,12 +20,12 @@ exports.Prisma = Prisma
 exports.$Enums = {}
 
 /**
- * Prisma Client JS version: 6.10.1
- * Query Engine version: 9b628578b3b7cae625e8c927178f15a170e74a9c
+ * Prisma Client JS version: 6.12.0
+ * Query Engine version: 8047c96bbd92db98a2abc7c9323ce77c02c89dbc
  */
 Prisma.prismaVersion = {
-  client: "6.10.1",
-  engine: "9b628578b3b7cae625e8c927178f15a170e74a9c"
+  client: "6.12.0",
+  engine: "8047c96bbd92db98a2abc7c9323ce77c02c89dbc"
 }
 
 Prisma.PrismaClientKnownRequestError = () => {
@@ -120,9 +120,48 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email'
+};
+
+exports.Prisma.SignosVitalesScalarFieldEnum = {
+  id: 'id',
+  frecuencia_cardiaca: 'frecuencia_cardiaca',
+  presion_arterial: 'presion_arterial',
+  frecuencia_respiratoria: 'frecuencia_respiratoria',
+  temperatura_corporal: 'temperatura_corporal',
+  saturacion_oxigeno: 'saturacion_oxigeno',
+  procalcitonina: 'procalcitonina',
+  lactato: 'lactato',
+  proteina_creactiva: 'proteina_creactiva',
+  leucocitos: 'leucocitos',
+  patologias_presentes: 'patologias_presentes',
+  horario: 'horario'
+};
+
+exports.Prisma.ResultadoScalarFieldEnum = {
+  id: 'id',
+  resultado: 'resultado',
+  signoVitalId: 'signoVitalId'
+};
+
+exports.Prisma.SortOrder = {
+  asc: 'asc',
+  desc: 'desc'
+};
+
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
 
 exports.Prisma.ModelName = {
-
+  User: 'User',
+  SignosVitales: 'SignosVitales',
+  Resultado: 'Resultado'
 };
 
 /**

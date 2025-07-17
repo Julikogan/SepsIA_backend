@@ -1,15 +1,39 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  provider      = "prisma-client-js"
+  output        = "../src/generated/prisma"
+  binaryTargets = ["native", "windows", "darwin-arm64", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int    @id @default(autoincrement())
+  name  String
+  email String @unique
+}
+
+model SignosVitales {
+  id                      Int         @id @default(autoincrement())
+  frecuencia_cardiaca     Float
+  presion_arterial        Float
+  frecuencia_respiratoria Float
+  temperatura_corporal    Float
+  saturacion_oxigeno      Float
+  procalcitonina          Float
+  lactato                 Float
+  proteina_creactiva      Float
+  leucocitos              Float
+  patologias_presentes    String
+  horario                 DateTime    @default(now())
+  resultados              Resultado[]
+}
+
+model Resultado {
+  id           Int           @id @default(autoincrement())
+  resultado    Float
+  signoVital   SignosVitales @relation(fields: [signoVitalId], references: [id])
+  signoVitalId Int
 }

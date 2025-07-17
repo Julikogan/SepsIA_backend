@@ -1,5 +1,7 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+  binaryTargets = ["native", "windows", "darwin-arm64",  "rhel-openssl-3.0.x"]
 }
 
 datasource db {
@@ -26,8 +28,6 @@ model SignosVitales {
   leucocitos Float
   patologias_presentes String
   horario DateTime @default(now())
-  id_paciente Int
-  paciente Paciente @relation(fields: [id_paciente], references: [id])
   resultados Resultado[]
 }
 
@@ -36,14 +36,4 @@ model Resultado {
   resultado Float
   signoVital SignosVitales @relation(fields: [signoVitalId], references: [id])
   signoVitalId Int
-}
-
-model Paciente {
-  id          Int            @id @default(autoincrement())
-  nombre      String
-  edad       Int
-  sexo        String
-  habitacion   String
-  fecha_ingreso DateTime @default(now())
-  signosVitales SignosVitales[]
 }
