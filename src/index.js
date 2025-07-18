@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import signosRoutes from './routes/SignosRouter.js';
 import resultadosRoutes from './routes/ResultadosRouter.js';
+import iaRouter from './routes/IARouter.js';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 // Definir rutas
 app.use('/signos-vitales', signosRoutes);
 app.use('/resultados', resultadosRoutes);
+app.use('/ia', iaRouter);
 
 // Root route
 app.get('/', (req, res) => {
