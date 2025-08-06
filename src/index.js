@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import serverless from 'serverless-http';
 
 import signosRoutes from './routes/SignosRouter.js';
 import resultadosRoutes from './routes/ResultadosRouter.js';
@@ -31,5 +30,9 @@ app.get('/', (req, res) => {
     res.json({ message: "Se supone que funca" });
 });
 
-// Start server
-export const handler = serverless(app);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+export default app;
