@@ -29,6 +29,8 @@ model SignosVitales {
   patologias_presentes    String
   horario                 DateTime    @default(now())
   resultados              Resultado[]
+  paciente                Pacientes   @relation(fields: [pacienteId], references: [id])
+  pacienteId              Int
 }
 
 model Resultado {
@@ -36,4 +38,15 @@ model Resultado {
   resultado    Float
   signoVital   SignosVitales @relation(fields: [signoVitalId], references: [id])
   signoVitalId Int
+}
+
+model Pacientes {
+  id               Int             @id @default(autoincrement())
+  nombre           String
+  sexo             String
+  edad             Int
+  dni              Int             @unique
+  habitacion       Int
+  ingreso_paciente DateTime        @default(now())
+  signos           SignosVitales[]
 }

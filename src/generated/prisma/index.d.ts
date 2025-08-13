@@ -28,6 +28,11 @@ export type SignosVitales = $Result.DefaultSelection<Prisma.$SignosVitalesPayloa
  * 
  */
 export type Resultado = $Result.DefaultSelection<Prisma.$ResultadoPayload>
+/**
+ * Model Pacientes
+ * 
+ */
+export type Pacientes = $Result.DefaultSelection<Prisma.$PacientesPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -45,7 +50,7 @@ export type Resultado = $Result.DefaultSelection<Prisma.$ResultadoPayload>
  */
 export class PrismaClient<
   ClientOptions extends Prisma.PrismaClientOptions = Prisma.PrismaClientOptions,
-  U = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never,
+  const U = 'log' extends keyof ClientOptions ? ClientOptions['log'] extends Array<Prisma.LogLevel | Prisma.LogDefinition> ? Prisma.GetEvents<ClientOptions['log']> : never : never,
   ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs
 > {
   [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['other'] }
@@ -77,13 +82,6 @@ export class PrismaClient<
    * Disconnect from the database
    */
   $disconnect(): $Utils.JsPromise<void>;
-
-  /**
-   * Add a middleware
-   * @deprecated since 4.16.0. For new code, prefer client extensions instead.
-   * @see https://pris.ly/d/extensions
-   */
-  $use(cb: Prisma.Middleware): void
 
 /**
    * Executes a prepared raw query and returns the number of affected rows.
@@ -183,6 +181,16 @@ export class PrismaClient<
     * ```
     */
   get resultado(): Prisma.ResultadoDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.pacientes`: Exposes CRUD operations for the **Pacientes** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Pacientes
+    * const pacientes = await prisma.pacientes.findMany()
+    * ```
+    */
+  get pacientes(): Prisma.PacientesDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -241,8 +249,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.12.0
-   * Query Engine version: 8047c96bbd92db98a2abc7c9323ce77c02c89dbc
+   * Prisma Client JS version: 6.14.0
+   * Query Engine version: 717184b7b35ea05dfa71a3236b7af656013e1e49
    */
   export type PrismaVersion = {
     client: string
@@ -625,7 +633,8 @@ export namespace Prisma {
   export const ModelName: {
     User: 'User',
     SignosVitales: 'SignosVitales',
-    Resultado: 'Resultado'
+    Resultado: 'Resultado',
+    Pacientes: 'Pacientes'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -644,7 +653,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "signosVitales" | "resultado"
+      modelProps: "user" | "signosVitales" | "resultado" | "pacientes"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -870,6 +879,80 @@ export namespace Prisma {
           }
         }
       }
+      Pacientes: {
+        payload: Prisma.$PacientesPayload<ExtArgs>
+        fields: Prisma.PacientesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.PacientesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PacientesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.PacientesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PacientesPayload>
+          }
+          findFirst: {
+            args: Prisma.PacientesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PacientesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.PacientesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PacientesPayload>
+          }
+          findMany: {
+            args: Prisma.PacientesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PacientesPayload>[]
+          }
+          create: {
+            args: Prisma.PacientesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PacientesPayload>
+          }
+          createMany: {
+            args: Prisma.PacientesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.PacientesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PacientesPayload>[]
+          }
+          delete: {
+            args: Prisma.PacientesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PacientesPayload>
+          }
+          update: {
+            args: Prisma.PacientesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PacientesPayload>
+          }
+          deleteMany: {
+            args: Prisma.PacientesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.PacientesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.PacientesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PacientesPayload>[]
+          }
+          upsert: {
+            args: Prisma.PacientesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PacientesPayload>
+          }
+          aggregate: {
+            args: Prisma.PacientesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePacientes>
+          }
+          groupBy: {
+            args: Prisma.PacientesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PacientesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.PacientesCountArgs<ExtArgs>
+            result: $Utils.Optional<PacientesCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -913,16 +996,24 @@ export namespace Prisma {
     /**
      * @example
      * ```
-     * // Defaults to stdout
+     * // Shorthand for `emit: 'stdout'`
      * log: ['query', 'info', 'warn', 'error']
      * 
-     * // Emit as events
+     * // Emit as events only
      * log: [
-     *   { emit: 'stdout', level: 'query' },
-     *   { emit: 'stdout', level: 'info' },
-     *   { emit: 'stdout', level: 'warn' }
-     *   { emit: 'stdout', level: 'error' }
+     *   { emit: 'event', level: 'query' },
+     *   { emit: 'event', level: 'info' },
+     *   { emit: 'event', level: 'warn' }
+     *   { emit: 'event', level: 'error' }
      * ]
+     * 
+     * / Emit as events and log to stdout
+     * og: [
+     *  { emit: 'stdout', level: 'query' },
+     *  { emit: 'stdout', level: 'info' },
+     *  { emit: 'stdout', level: 'warn' }
+     *  { emit: 'stdout', level: 'error' }
+     * 
      * ```
      * Read more in our [docs](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/logging#the-log-option).
      */
@@ -957,6 +1048,7 @@ export namespace Prisma {
     user?: UserOmit
     signosVitales?: SignosVitalesOmit
     resultado?: ResultadoOmit
+    pacientes?: PacientesOmit
   }
 
   /* Types for Logging */
@@ -966,10 +1058,15 @@ export namespace Prisma {
     emit: 'stdout' | 'event'
   }
 
-  export type GetLogType<T extends LogLevel | LogDefinition> = T extends LogDefinition ? T['emit'] extends 'event' ? T['level'] : never : never
-  export type GetEvents<T extends any> = T extends Array<LogLevel | LogDefinition> ?
-    GetLogType<T[0]> | GetLogType<T[1]> | GetLogType<T[2]> | GetLogType<T[3]>
-    : never
+  export type CheckIsLogLevel<T> = T extends LogLevel ? T : never;
+
+  export type GetLogType<T> = CheckIsLogLevel<
+    T extends LogDefinition ? T['level'] : T
+  >;
+
+  export type GetEvents<T extends any[]> = T extends Array<LogLevel | LogDefinition>
+    ? GetLogType<T[number]>
+    : never;
 
   export type QueryEvent = {
     timestamp: Date
@@ -1009,25 +1106,6 @@ export namespace Prisma {
     | 'runCommandRaw'
     | 'findRaw'
     | 'groupBy'
-
-  /**
-   * These options are being passed into the middleware as "params"
-   */
-  export type MiddlewareParams = {
-    model?: ModelName
-    action: PrismaAction
-    args: any
-    dataPath: string[]
-    runInTransaction: boolean
-  }
-
-  /**
-   * The `T` type makes sure, that the `return proceed` is not forgotten in the middleware implementation
-   */
-  export type Middleware<T = any> = (
-    params: MiddlewareParams,
-    next: (params: MiddlewareParams) => $Utils.JsPromise<T>,
-  ) => $Utils.JsPromise<T>
 
   // tested in getLogLevel.test.ts
   export function getLogLevel(log: Array<LogLevel | LogDefinition>): LogLevel | undefined;
@@ -1074,6 +1152,37 @@ export namespace Prisma {
    */
   export type SignosVitalesCountOutputTypeCountResultadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ResultadoWhereInput
+  }
+
+
+  /**
+   * Count Type PacientesCountOutputType
+   */
+
+  export type PacientesCountOutputType = {
+    signos: number
+  }
+
+  export type PacientesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    signos?: boolean | PacientesCountOutputTypeCountSignosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * PacientesCountOutputType without action
+   */
+  export type PacientesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PacientesCountOutputType
+     */
+    select?: PacientesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * PacientesCountOutputType without action
+   */
+  export type PacientesCountOutputTypeCountSignosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SignosVitalesWhereInput
   }
 
 
@@ -2107,6 +2216,7 @@ export namespace Prisma {
     lactato: number | null
     proteina_creactiva: number | null
     leucocitos: number | null
+    pacienteId: number | null
   }
 
   export type SignosVitalesSumAggregateOutputType = {
@@ -2120,6 +2230,7 @@ export namespace Prisma {
     lactato: number | null
     proteina_creactiva: number | null
     leucocitos: number | null
+    pacienteId: number | null
   }
 
   export type SignosVitalesMinAggregateOutputType = {
@@ -2135,6 +2246,7 @@ export namespace Prisma {
     leucocitos: number | null
     patologias_presentes: string | null
     horario: Date | null
+    pacienteId: number | null
   }
 
   export type SignosVitalesMaxAggregateOutputType = {
@@ -2150,6 +2262,7 @@ export namespace Prisma {
     leucocitos: number | null
     patologias_presentes: string | null
     horario: Date | null
+    pacienteId: number | null
   }
 
   export type SignosVitalesCountAggregateOutputType = {
@@ -2165,6 +2278,7 @@ export namespace Prisma {
     leucocitos: number
     patologias_presentes: number
     horario: number
+    pacienteId: number
     _all: number
   }
 
@@ -2180,6 +2294,7 @@ export namespace Prisma {
     lactato?: true
     proteina_creactiva?: true
     leucocitos?: true
+    pacienteId?: true
   }
 
   export type SignosVitalesSumAggregateInputType = {
@@ -2193,6 +2308,7 @@ export namespace Prisma {
     lactato?: true
     proteina_creactiva?: true
     leucocitos?: true
+    pacienteId?: true
   }
 
   export type SignosVitalesMinAggregateInputType = {
@@ -2208,6 +2324,7 @@ export namespace Prisma {
     leucocitos?: true
     patologias_presentes?: true
     horario?: true
+    pacienteId?: true
   }
 
   export type SignosVitalesMaxAggregateInputType = {
@@ -2223,6 +2340,7 @@ export namespace Prisma {
     leucocitos?: true
     patologias_presentes?: true
     horario?: true
+    pacienteId?: true
   }
 
   export type SignosVitalesCountAggregateInputType = {
@@ -2238,6 +2356,7 @@ export namespace Prisma {
     leucocitos?: true
     patologias_presentes?: true
     horario?: true
+    pacienteId?: true
     _all?: true
   }
 
@@ -2340,6 +2459,7 @@ export namespace Prisma {
     leucocitos: number
     patologias_presentes: string
     horario: Date
+    pacienteId: number
     _count: SignosVitalesCountAggregateOutputType | null
     _avg: SignosVitalesAvgAggregateOutputType | null
     _sum: SignosVitalesSumAggregateOutputType | null
@@ -2374,7 +2494,9 @@ export namespace Prisma {
     leucocitos?: boolean
     patologias_presentes?: boolean
     horario?: boolean
+    pacienteId?: boolean
     resultados?: boolean | SignosVitales$resultadosArgs<ExtArgs>
+    paciente?: boolean | PacientesDefaultArgs<ExtArgs>
     _count?: boolean | SignosVitalesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["signosVitales"]>
 
@@ -2391,6 +2513,8 @@ export namespace Prisma {
     leucocitos?: boolean
     patologias_presentes?: boolean
     horario?: boolean
+    pacienteId?: boolean
+    paciente?: boolean | PacientesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["signosVitales"]>
 
   export type SignosVitalesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2406,6 +2530,8 @@ export namespace Prisma {
     leucocitos?: boolean
     patologias_presentes?: boolean
     horario?: boolean
+    pacienteId?: boolean
+    paciente?: boolean | PacientesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["signosVitales"]>
 
   export type SignosVitalesSelectScalar = {
@@ -2421,20 +2547,27 @@ export namespace Prisma {
     leucocitos?: boolean
     patologias_presentes?: boolean
     horario?: boolean
+    pacienteId?: boolean
   }
 
-  export type SignosVitalesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "frecuencia_cardiaca" | "presion_arterial" | "frecuencia_respiratoria" | "temperatura_corporal" | "saturacion_oxigeno" | "procalcitonina" | "lactato" | "proteina_creactiva" | "leucocitos" | "patologias_presentes" | "horario", ExtArgs["result"]["signosVitales"]>
+  export type SignosVitalesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "frecuencia_cardiaca" | "presion_arterial" | "frecuencia_respiratoria" | "temperatura_corporal" | "saturacion_oxigeno" | "procalcitonina" | "lactato" | "proteina_creactiva" | "leucocitos" | "patologias_presentes" | "horario" | "pacienteId", ExtArgs["result"]["signosVitales"]>
   export type SignosVitalesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     resultados?: boolean | SignosVitales$resultadosArgs<ExtArgs>
+    paciente?: boolean | PacientesDefaultArgs<ExtArgs>
     _count?: boolean | SignosVitalesCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type SignosVitalesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type SignosVitalesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type SignosVitalesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    paciente?: boolean | PacientesDefaultArgs<ExtArgs>
+  }
+  export type SignosVitalesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    paciente?: boolean | PacientesDefaultArgs<ExtArgs>
+  }
 
   export type $SignosVitalesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "SignosVitales"
     objects: {
       resultados: Prisma.$ResultadoPayload<ExtArgs>[]
+      paciente: Prisma.$PacientesPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2449,6 +2582,7 @@ export namespace Prisma {
       leucocitos: number
       patologias_presentes: string
       horario: Date
+      pacienteId: number
     }, ExtArgs["result"]["signosVitales"]>
     composites: {}
   }
@@ -2844,6 +2978,7 @@ export namespace Prisma {
   export interface Prisma__SignosVitalesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     resultados<T extends SignosVitales$resultadosArgs<ExtArgs> = {}>(args?: Subset<T, SignosVitales$resultadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ResultadoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    paciente<T extends PacientesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PacientesDefaultArgs<ExtArgs>>): Prisma__PacientesClient<$Result.GetResult<Prisma.$PacientesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2885,6 +3020,7 @@ export namespace Prisma {
     readonly leucocitos: FieldRef<"SignosVitales", 'Float'>
     readonly patologias_presentes: FieldRef<"SignosVitales", 'String'>
     readonly horario: FieldRef<"SignosVitales", 'DateTime'>
+    readonly pacienteId: FieldRef<"SignosVitales", 'Int'>
   }
     
 
@@ -3134,6 +3270,10 @@ export namespace Prisma {
      */
     data: SignosVitalesCreateManyInput | SignosVitalesCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignosVitalesIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -3204,6 +3344,10 @@ export namespace Prisma {
      * Limit how many SignosVitales to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignosVitalesIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -4390,6 +4534,1148 @@ export namespace Prisma {
 
 
   /**
+   * Model Pacientes
+   */
+
+  export type AggregatePacientes = {
+    _count: PacientesCountAggregateOutputType | null
+    _avg: PacientesAvgAggregateOutputType | null
+    _sum: PacientesSumAggregateOutputType | null
+    _min: PacientesMinAggregateOutputType | null
+    _max: PacientesMaxAggregateOutputType | null
+  }
+
+  export type PacientesAvgAggregateOutputType = {
+    id: number | null
+    edad: number | null
+    dni: number | null
+    habitacion: number | null
+  }
+
+  export type PacientesSumAggregateOutputType = {
+    id: number | null
+    edad: number | null
+    dni: number | null
+    habitacion: number | null
+  }
+
+  export type PacientesMinAggregateOutputType = {
+    id: number | null
+    nombre: string | null
+    sexo: string | null
+    edad: number | null
+    dni: number | null
+    habitacion: number | null
+    ingreso_paciente: Date | null
+  }
+
+  export type PacientesMaxAggregateOutputType = {
+    id: number | null
+    nombre: string | null
+    sexo: string | null
+    edad: number | null
+    dni: number | null
+    habitacion: number | null
+    ingreso_paciente: Date | null
+  }
+
+  export type PacientesCountAggregateOutputType = {
+    id: number
+    nombre: number
+    sexo: number
+    edad: number
+    dni: number
+    habitacion: number
+    ingreso_paciente: number
+    _all: number
+  }
+
+
+  export type PacientesAvgAggregateInputType = {
+    id?: true
+    edad?: true
+    dni?: true
+    habitacion?: true
+  }
+
+  export type PacientesSumAggregateInputType = {
+    id?: true
+    edad?: true
+    dni?: true
+    habitacion?: true
+  }
+
+  export type PacientesMinAggregateInputType = {
+    id?: true
+    nombre?: true
+    sexo?: true
+    edad?: true
+    dni?: true
+    habitacion?: true
+    ingreso_paciente?: true
+  }
+
+  export type PacientesMaxAggregateInputType = {
+    id?: true
+    nombre?: true
+    sexo?: true
+    edad?: true
+    dni?: true
+    habitacion?: true
+    ingreso_paciente?: true
+  }
+
+  export type PacientesCountAggregateInputType = {
+    id?: true
+    nombre?: true
+    sexo?: true
+    edad?: true
+    dni?: true
+    habitacion?: true
+    ingreso_paciente?: true
+    _all?: true
+  }
+
+  export type PacientesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Pacientes to aggregate.
+     */
+    where?: PacientesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Pacientes to fetch.
+     */
+    orderBy?: PacientesOrderByWithRelationInput | PacientesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PacientesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Pacientes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Pacientes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Pacientes
+    **/
+    _count?: true | PacientesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PacientesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PacientesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PacientesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PacientesMaxAggregateInputType
+  }
+
+  export type GetPacientesAggregateType<T extends PacientesAggregateArgs> = {
+        [P in keyof T & keyof AggregatePacientes]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePacientes[P]>
+      : GetScalarType<T[P], AggregatePacientes[P]>
+  }
+
+
+
+
+  export type PacientesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PacientesWhereInput
+    orderBy?: PacientesOrderByWithAggregationInput | PacientesOrderByWithAggregationInput[]
+    by: PacientesScalarFieldEnum[] | PacientesScalarFieldEnum
+    having?: PacientesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PacientesCountAggregateInputType | true
+    _avg?: PacientesAvgAggregateInputType
+    _sum?: PacientesSumAggregateInputType
+    _min?: PacientesMinAggregateInputType
+    _max?: PacientesMaxAggregateInputType
+  }
+
+  export type PacientesGroupByOutputType = {
+    id: number
+    nombre: string
+    sexo: string
+    edad: number
+    dni: number
+    habitacion: number
+    ingreso_paciente: Date
+    _count: PacientesCountAggregateOutputType | null
+    _avg: PacientesAvgAggregateOutputType | null
+    _sum: PacientesSumAggregateOutputType | null
+    _min: PacientesMinAggregateOutputType | null
+    _max: PacientesMaxAggregateOutputType | null
+  }
+
+  type GetPacientesGroupByPayload<T extends PacientesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PacientesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PacientesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PacientesGroupByOutputType[P]>
+            : GetScalarType<T[P], PacientesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PacientesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nombre?: boolean
+    sexo?: boolean
+    edad?: boolean
+    dni?: boolean
+    habitacion?: boolean
+    ingreso_paciente?: boolean
+    signos?: boolean | Pacientes$signosArgs<ExtArgs>
+    _count?: boolean | PacientesCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["pacientes"]>
+
+  export type PacientesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nombre?: boolean
+    sexo?: boolean
+    edad?: boolean
+    dni?: boolean
+    habitacion?: boolean
+    ingreso_paciente?: boolean
+  }, ExtArgs["result"]["pacientes"]>
+
+  export type PacientesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    nombre?: boolean
+    sexo?: boolean
+    edad?: boolean
+    dni?: boolean
+    habitacion?: boolean
+    ingreso_paciente?: boolean
+  }, ExtArgs["result"]["pacientes"]>
+
+  export type PacientesSelectScalar = {
+    id?: boolean
+    nombre?: boolean
+    sexo?: boolean
+    edad?: boolean
+    dni?: boolean
+    habitacion?: boolean
+    ingreso_paciente?: boolean
+  }
+
+  export type PacientesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "nombre" | "sexo" | "edad" | "dni" | "habitacion" | "ingreso_paciente", ExtArgs["result"]["pacientes"]>
+  export type PacientesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    signos?: boolean | Pacientes$signosArgs<ExtArgs>
+    _count?: boolean | PacientesCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type PacientesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type PacientesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $PacientesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Pacientes"
+    objects: {
+      signos: Prisma.$SignosVitalesPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      nombre: string
+      sexo: string
+      edad: number
+      dni: number
+      habitacion: number
+      ingreso_paciente: Date
+    }, ExtArgs["result"]["pacientes"]>
+    composites: {}
+  }
+
+  type PacientesGetPayload<S extends boolean | null | undefined | PacientesDefaultArgs> = $Result.GetResult<Prisma.$PacientesPayload, S>
+
+  type PacientesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PacientesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PacientesCountAggregateInputType | true
+    }
+
+  export interface PacientesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Pacientes'], meta: { name: 'Pacientes' } }
+    /**
+     * Find zero or one Pacientes that matches the filter.
+     * @param {PacientesFindUniqueArgs} args - Arguments to find a Pacientes
+     * @example
+     * // Get one Pacientes
+     * const pacientes = await prisma.pacientes.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PacientesFindUniqueArgs>(args: SelectSubset<T, PacientesFindUniqueArgs<ExtArgs>>): Prisma__PacientesClient<$Result.GetResult<Prisma.$PacientesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Pacientes that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PacientesFindUniqueOrThrowArgs} args - Arguments to find a Pacientes
+     * @example
+     * // Get one Pacientes
+     * const pacientes = await prisma.pacientes.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PacientesFindUniqueOrThrowArgs>(args: SelectSubset<T, PacientesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PacientesClient<$Result.GetResult<Prisma.$PacientesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Pacientes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PacientesFindFirstArgs} args - Arguments to find a Pacientes
+     * @example
+     * // Get one Pacientes
+     * const pacientes = await prisma.pacientes.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PacientesFindFirstArgs>(args?: SelectSubset<T, PacientesFindFirstArgs<ExtArgs>>): Prisma__PacientesClient<$Result.GetResult<Prisma.$PacientesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Pacientes that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PacientesFindFirstOrThrowArgs} args - Arguments to find a Pacientes
+     * @example
+     * // Get one Pacientes
+     * const pacientes = await prisma.pacientes.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PacientesFindFirstOrThrowArgs>(args?: SelectSubset<T, PacientesFindFirstOrThrowArgs<ExtArgs>>): Prisma__PacientesClient<$Result.GetResult<Prisma.$PacientesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Pacientes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PacientesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Pacientes
+     * const pacientes = await prisma.pacientes.findMany()
+     * 
+     * // Get first 10 Pacientes
+     * const pacientes = await prisma.pacientes.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const pacientesWithIdOnly = await prisma.pacientes.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PacientesFindManyArgs>(args?: SelectSubset<T, PacientesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PacientesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Pacientes.
+     * @param {PacientesCreateArgs} args - Arguments to create a Pacientes.
+     * @example
+     * // Create one Pacientes
+     * const Pacientes = await prisma.pacientes.create({
+     *   data: {
+     *     // ... data to create a Pacientes
+     *   }
+     * })
+     * 
+     */
+    create<T extends PacientesCreateArgs>(args: SelectSubset<T, PacientesCreateArgs<ExtArgs>>): Prisma__PacientesClient<$Result.GetResult<Prisma.$PacientesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Pacientes.
+     * @param {PacientesCreateManyArgs} args - Arguments to create many Pacientes.
+     * @example
+     * // Create many Pacientes
+     * const pacientes = await prisma.pacientes.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PacientesCreateManyArgs>(args?: SelectSubset<T, PacientesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Pacientes and returns the data saved in the database.
+     * @param {PacientesCreateManyAndReturnArgs} args - Arguments to create many Pacientes.
+     * @example
+     * // Create many Pacientes
+     * const pacientes = await prisma.pacientes.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Pacientes and only return the `id`
+     * const pacientesWithIdOnly = await prisma.pacientes.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PacientesCreateManyAndReturnArgs>(args?: SelectSubset<T, PacientesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PacientesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Pacientes.
+     * @param {PacientesDeleteArgs} args - Arguments to delete one Pacientes.
+     * @example
+     * // Delete one Pacientes
+     * const Pacientes = await prisma.pacientes.delete({
+     *   where: {
+     *     // ... filter to delete one Pacientes
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PacientesDeleteArgs>(args: SelectSubset<T, PacientesDeleteArgs<ExtArgs>>): Prisma__PacientesClient<$Result.GetResult<Prisma.$PacientesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Pacientes.
+     * @param {PacientesUpdateArgs} args - Arguments to update one Pacientes.
+     * @example
+     * // Update one Pacientes
+     * const pacientes = await prisma.pacientes.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PacientesUpdateArgs>(args: SelectSubset<T, PacientesUpdateArgs<ExtArgs>>): Prisma__PacientesClient<$Result.GetResult<Prisma.$PacientesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Pacientes.
+     * @param {PacientesDeleteManyArgs} args - Arguments to filter Pacientes to delete.
+     * @example
+     * // Delete a few Pacientes
+     * const { count } = await prisma.pacientes.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PacientesDeleteManyArgs>(args?: SelectSubset<T, PacientesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Pacientes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PacientesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Pacientes
+     * const pacientes = await prisma.pacientes.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PacientesUpdateManyArgs>(args: SelectSubset<T, PacientesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Pacientes and returns the data updated in the database.
+     * @param {PacientesUpdateManyAndReturnArgs} args - Arguments to update many Pacientes.
+     * @example
+     * // Update many Pacientes
+     * const pacientes = await prisma.pacientes.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Pacientes and only return the `id`
+     * const pacientesWithIdOnly = await prisma.pacientes.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PacientesUpdateManyAndReturnArgs>(args: SelectSubset<T, PacientesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PacientesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Pacientes.
+     * @param {PacientesUpsertArgs} args - Arguments to update or create a Pacientes.
+     * @example
+     * // Update or create a Pacientes
+     * const pacientes = await prisma.pacientes.upsert({
+     *   create: {
+     *     // ... data to create a Pacientes
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Pacientes we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PacientesUpsertArgs>(args: SelectSubset<T, PacientesUpsertArgs<ExtArgs>>): Prisma__PacientesClient<$Result.GetResult<Prisma.$PacientesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Pacientes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PacientesCountArgs} args - Arguments to filter Pacientes to count.
+     * @example
+     * // Count the number of Pacientes
+     * const count = await prisma.pacientes.count({
+     *   where: {
+     *     // ... the filter for the Pacientes we want to count
+     *   }
+     * })
+    **/
+    count<T extends PacientesCountArgs>(
+      args?: Subset<T, PacientesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PacientesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Pacientes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PacientesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PacientesAggregateArgs>(args: Subset<T, PacientesAggregateArgs>): Prisma.PrismaPromise<GetPacientesAggregateType<T>>
+
+    /**
+     * Group by Pacientes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PacientesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PacientesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PacientesGroupByArgs['orderBy'] }
+        : { orderBy?: PacientesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PacientesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPacientesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Pacientes model
+   */
+  readonly fields: PacientesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Pacientes.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PacientesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    signos<T extends Pacientes$signosArgs<ExtArgs> = {}>(args?: Subset<T, Pacientes$signosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SignosVitalesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Pacientes model
+   */
+  interface PacientesFieldRefs {
+    readonly id: FieldRef<"Pacientes", 'Int'>
+    readonly nombre: FieldRef<"Pacientes", 'String'>
+    readonly sexo: FieldRef<"Pacientes", 'String'>
+    readonly edad: FieldRef<"Pacientes", 'Int'>
+    readonly dni: FieldRef<"Pacientes", 'Int'>
+    readonly habitacion: FieldRef<"Pacientes", 'Int'>
+    readonly ingreso_paciente: FieldRef<"Pacientes", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Pacientes findUnique
+   */
+  export type PacientesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pacientes
+     */
+    select?: PacientesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pacientes
+     */
+    omit?: PacientesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PacientesInclude<ExtArgs> | null
+    /**
+     * Filter, which Pacientes to fetch.
+     */
+    where: PacientesWhereUniqueInput
+  }
+
+  /**
+   * Pacientes findUniqueOrThrow
+   */
+  export type PacientesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pacientes
+     */
+    select?: PacientesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pacientes
+     */
+    omit?: PacientesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PacientesInclude<ExtArgs> | null
+    /**
+     * Filter, which Pacientes to fetch.
+     */
+    where: PacientesWhereUniqueInput
+  }
+
+  /**
+   * Pacientes findFirst
+   */
+  export type PacientesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pacientes
+     */
+    select?: PacientesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pacientes
+     */
+    omit?: PacientesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PacientesInclude<ExtArgs> | null
+    /**
+     * Filter, which Pacientes to fetch.
+     */
+    where?: PacientesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Pacientes to fetch.
+     */
+    orderBy?: PacientesOrderByWithRelationInput | PacientesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Pacientes.
+     */
+    cursor?: PacientesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Pacientes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Pacientes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Pacientes.
+     */
+    distinct?: PacientesScalarFieldEnum | PacientesScalarFieldEnum[]
+  }
+
+  /**
+   * Pacientes findFirstOrThrow
+   */
+  export type PacientesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pacientes
+     */
+    select?: PacientesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pacientes
+     */
+    omit?: PacientesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PacientesInclude<ExtArgs> | null
+    /**
+     * Filter, which Pacientes to fetch.
+     */
+    where?: PacientesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Pacientes to fetch.
+     */
+    orderBy?: PacientesOrderByWithRelationInput | PacientesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Pacientes.
+     */
+    cursor?: PacientesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Pacientes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Pacientes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Pacientes.
+     */
+    distinct?: PacientesScalarFieldEnum | PacientesScalarFieldEnum[]
+  }
+
+  /**
+   * Pacientes findMany
+   */
+  export type PacientesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pacientes
+     */
+    select?: PacientesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pacientes
+     */
+    omit?: PacientesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PacientesInclude<ExtArgs> | null
+    /**
+     * Filter, which Pacientes to fetch.
+     */
+    where?: PacientesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Pacientes to fetch.
+     */
+    orderBy?: PacientesOrderByWithRelationInput | PacientesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Pacientes.
+     */
+    cursor?: PacientesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Pacientes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Pacientes.
+     */
+    skip?: number
+    distinct?: PacientesScalarFieldEnum | PacientesScalarFieldEnum[]
+  }
+
+  /**
+   * Pacientes create
+   */
+  export type PacientesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pacientes
+     */
+    select?: PacientesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pacientes
+     */
+    omit?: PacientesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PacientesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Pacientes.
+     */
+    data: XOR<PacientesCreateInput, PacientesUncheckedCreateInput>
+  }
+
+  /**
+   * Pacientes createMany
+   */
+  export type PacientesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Pacientes.
+     */
+    data: PacientesCreateManyInput | PacientesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Pacientes createManyAndReturn
+   */
+  export type PacientesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pacientes
+     */
+    select?: PacientesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pacientes
+     */
+    omit?: PacientesOmit<ExtArgs> | null
+    /**
+     * The data used to create many Pacientes.
+     */
+    data: PacientesCreateManyInput | PacientesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Pacientes update
+   */
+  export type PacientesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pacientes
+     */
+    select?: PacientesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pacientes
+     */
+    omit?: PacientesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PacientesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Pacientes.
+     */
+    data: XOR<PacientesUpdateInput, PacientesUncheckedUpdateInput>
+    /**
+     * Choose, which Pacientes to update.
+     */
+    where: PacientesWhereUniqueInput
+  }
+
+  /**
+   * Pacientes updateMany
+   */
+  export type PacientesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Pacientes.
+     */
+    data: XOR<PacientesUpdateManyMutationInput, PacientesUncheckedUpdateManyInput>
+    /**
+     * Filter which Pacientes to update
+     */
+    where?: PacientesWhereInput
+    /**
+     * Limit how many Pacientes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Pacientes updateManyAndReturn
+   */
+  export type PacientesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pacientes
+     */
+    select?: PacientesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pacientes
+     */
+    omit?: PacientesOmit<ExtArgs> | null
+    /**
+     * The data used to update Pacientes.
+     */
+    data: XOR<PacientesUpdateManyMutationInput, PacientesUncheckedUpdateManyInput>
+    /**
+     * Filter which Pacientes to update
+     */
+    where?: PacientesWhereInput
+    /**
+     * Limit how many Pacientes to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Pacientes upsert
+   */
+  export type PacientesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pacientes
+     */
+    select?: PacientesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pacientes
+     */
+    omit?: PacientesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PacientesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Pacientes to update in case it exists.
+     */
+    where: PacientesWhereUniqueInput
+    /**
+     * In case the Pacientes found by the `where` argument doesn't exist, create a new Pacientes with this data.
+     */
+    create: XOR<PacientesCreateInput, PacientesUncheckedCreateInput>
+    /**
+     * In case the Pacientes was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PacientesUpdateInput, PacientesUncheckedUpdateInput>
+  }
+
+  /**
+   * Pacientes delete
+   */
+  export type PacientesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pacientes
+     */
+    select?: PacientesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pacientes
+     */
+    omit?: PacientesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PacientesInclude<ExtArgs> | null
+    /**
+     * Filter which Pacientes to delete.
+     */
+    where: PacientesWhereUniqueInput
+  }
+
+  /**
+   * Pacientes deleteMany
+   */
+  export type PacientesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Pacientes to delete
+     */
+    where?: PacientesWhereInput
+    /**
+     * Limit how many Pacientes to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Pacientes.signos
+   */
+  export type Pacientes$signosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SignosVitales
+     */
+    select?: SignosVitalesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SignosVitales
+     */
+    omit?: SignosVitalesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SignosVitalesInclude<ExtArgs> | null
+    where?: SignosVitalesWhereInput
+    orderBy?: SignosVitalesOrderByWithRelationInput | SignosVitalesOrderByWithRelationInput[]
+    cursor?: SignosVitalesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SignosVitalesScalarFieldEnum | SignosVitalesScalarFieldEnum[]
+  }
+
+  /**
+   * Pacientes without action
+   */
+  export type PacientesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Pacientes
+     */
+    select?: PacientesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Pacientes
+     */
+    omit?: PacientesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PacientesInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -4424,7 +5710,8 @@ export namespace Prisma {
     proteina_creactiva: 'proteina_creactiva',
     leucocitos: 'leucocitos',
     patologias_presentes: 'patologias_presentes',
-    horario: 'horario'
+    horario: 'horario',
+    pacienteId: 'pacienteId'
   };
 
   export type SignosVitalesScalarFieldEnum = (typeof SignosVitalesScalarFieldEnum)[keyof typeof SignosVitalesScalarFieldEnum]
@@ -4437,6 +5724,19 @@ export namespace Prisma {
   };
 
   export type ResultadoScalarFieldEnum = (typeof ResultadoScalarFieldEnum)[keyof typeof ResultadoScalarFieldEnum]
+
+
+  export const PacientesScalarFieldEnum: {
+    id: 'id',
+    nombre: 'nombre',
+    sexo: 'sexo',
+    edad: 'edad',
+    dni: 'dni',
+    habitacion: 'habitacion',
+    ingreso_paciente: 'ingreso_paciente'
+  };
+
+  export type PacientesScalarFieldEnum = (typeof PacientesScalarFieldEnum)[keyof typeof PacientesScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4579,7 +5879,9 @@ export namespace Prisma {
     leucocitos?: FloatFilter<"SignosVitales"> | number
     patologias_presentes?: StringFilter<"SignosVitales"> | string
     horario?: DateTimeFilter<"SignosVitales"> | Date | string
+    pacienteId?: IntFilter<"SignosVitales"> | number
     resultados?: ResultadoListRelationFilter
+    paciente?: XOR<PacientesScalarRelationFilter, PacientesWhereInput>
   }
 
   export type SignosVitalesOrderByWithRelationInput = {
@@ -4595,7 +5897,9 @@ export namespace Prisma {
     leucocitos?: SortOrder
     patologias_presentes?: SortOrder
     horario?: SortOrder
+    pacienteId?: SortOrder
     resultados?: ResultadoOrderByRelationAggregateInput
+    paciente?: PacientesOrderByWithRelationInput
   }
 
   export type SignosVitalesWhereUniqueInput = Prisma.AtLeast<{
@@ -4614,7 +5918,9 @@ export namespace Prisma {
     leucocitos?: FloatFilter<"SignosVitales"> | number
     patologias_presentes?: StringFilter<"SignosVitales"> | string
     horario?: DateTimeFilter<"SignosVitales"> | Date | string
+    pacienteId?: IntFilter<"SignosVitales"> | number
     resultados?: ResultadoListRelationFilter
+    paciente?: XOR<PacientesScalarRelationFilter, PacientesWhereInput>
   }, "id">
 
   export type SignosVitalesOrderByWithAggregationInput = {
@@ -4630,6 +5936,7 @@ export namespace Prisma {
     leucocitos?: SortOrder
     patologias_presentes?: SortOrder
     horario?: SortOrder
+    pacienteId?: SortOrder
     _count?: SignosVitalesCountOrderByAggregateInput
     _avg?: SignosVitalesAvgOrderByAggregateInput
     _max?: SignosVitalesMaxOrderByAggregateInput
@@ -4653,6 +5960,7 @@ export namespace Prisma {
     leucocitos?: FloatWithAggregatesFilter<"SignosVitales"> | number
     patologias_presentes?: StringWithAggregatesFilter<"SignosVitales"> | string
     horario?: DateTimeWithAggregatesFilter<"SignosVitales"> | Date | string
+    pacienteId?: IntWithAggregatesFilter<"SignosVitales"> | number
   }
 
   export type ResultadoWhereInput = {
@@ -4700,6 +6008,73 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Resultado"> | number
     resultado?: FloatWithAggregatesFilter<"Resultado"> | number
     signoVitalId?: IntWithAggregatesFilter<"Resultado"> | number
+  }
+
+  export type PacientesWhereInput = {
+    AND?: PacientesWhereInput | PacientesWhereInput[]
+    OR?: PacientesWhereInput[]
+    NOT?: PacientesWhereInput | PacientesWhereInput[]
+    id?: IntFilter<"Pacientes"> | number
+    nombre?: StringFilter<"Pacientes"> | string
+    sexo?: StringFilter<"Pacientes"> | string
+    edad?: IntFilter<"Pacientes"> | number
+    dni?: IntFilter<"Pacientes"> | number
+    habitacion?: IntFilter<"Pacientes"> | number
+    ingreso_paciente?: DateTimeFilter<"Pacientes"> | Date | string
+    signos?: SignosVitalesListRelationFilter
+  }
+
+  export type PacientesOrderByWithRelationInput = {
+    id?: SortOrder
+    nombre?: SortOrder
+    sexo?: SortOrder
+    edad?: SortOrder
+    dni?: SortOrder
+    habitacion?: SortOrder
+    ingreso_paciente?: SortOrder
+    signos?: SignosVitalesOrderByRelationAggregateInput
+  }
+
+  export type PacientesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    dni?: number
+    AND?: PacientesWhereInput | PacientesWhereInput[]
+    OR?: PacientesWhereInput[]
+    NOT?: PacientesWhereInput | PacientesWhereInput[]
+    nombre?: StringFilter<"Pacientes"> | string
+    sexo?: StringFilter<"Pacientes"> | string
+    edad?: IntFilter<"Pacientes"> | number
+    habitacion?: IntFilter<"Pacientes"> | number
+    ingreso_paciente?: DateTimeFilter<"Pacientes"> | Date | string
+    signos?: SignosVitalesListRelationFilter
+  }, "id" | "dni">
+
+  export type PacientesOrderByWithAggregationInput = {
+    id?: SortOrder
+    nombre?: SortOrder
+    sexo?: SortOrder
+    edad?: SortOrder
+    dni?: SortOrder
+    habitacion?: SortOrder
+    ingreso_paciente?: SortOrder
+    _count?: PacientesCountOrderByAggregateInput
+    _avg?: PacientesAvgOrderByAggregateInput
+    _max?: PacientesMaxOrderByAggregateInput
+    _min?: PacientesMinOrderByAggregateInput
+    _sum?: PacientesSumOrderByAggregateInput
+  }
+
+  export type PacientesScalarWhereWithAggregatesInput = {
+    AND?: PacientesScalarWhereWithAggregatesInput | PacientesScalarWhereWithAggregatesInput[]
+    OR?: PacientesScalarWhereWithAggregatesInput[]
+    NOT?: PacientesScalarWhereWithAggregatesInput | PacientesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Pacientes"> | number
+    nombre?: StringWithAggregatesFilter<"Pacientes"> | string
+    sexo?: StringWithAggregatesFilter<"Pacientes"> | string
+    edad?: IntWithAggregatesFilter<"Pacientes"> | number
+    dni?: IntWithAggregatesFilter<"Pacientes"> | number
+    habitacion?: IntWithAggregatesFilter<"Pacientes"> | number
+    ingreso_paciente?: DateTimeWithAggregatesFilter<"Pacientes"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -4754,6 +6129,7 @@ export namespace Prisma {
     patologias_presentes: string
     horario?: Date | string
     resultados?: ResultadoCreateNestedManyWithoutSignoVitalInput
+    paciente: PacientesCreateNestedOneWithoutSignosInput
   }
 
   export type SignosVitalesUncheckedCreateInput = {
@@ -4769,6 +6145,7 @@ export namespace Prisma {
     leucocitos: number
     patologias_presentes: string
     horario?: Date | string
+    pacienteId: number
     resultados?: ResultadoUncheckedCreateNestedManyWithoutSignoVitalInput
   }
 
@@ -4785,6 +6162,7 @@ export namespace Prisma {
     patologias_presentes?: StringFieldUpdateOperationsInput | string
     horario?: DateTimeFieldUpdateOperationsInput | Date | string
     resultados?: ResultadoUpdateManyWithoutSignoVitalNestedInput
+    paciente?: PacientesUpdateOneRequiredWithoutSignosNestedInput
   }
 
   export type SignosVitalesUncheckedUpdateInput = {
@@ -4800,6 +6178,7 @@ export namespace Prisma {
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
     horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    pacienteId?: IntFieldUpdateOperationsInput | number
     resultados?: ResultadoUncheckedUpdateManyWithoutSignoVitalNestedInput
   }
 
@@ -4816,6 +6195,7 @@ export namespace Prisma {
     leucocitos: number
     patologias_presentes: string
     horario?: Date | string
+    pacienteId: number
   }
 
   export type SignosVitalesUpdateManyMutationInput = {
@@ -4845,6 +6225,7 @@ export namespace Prisma {
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
     horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    pacienteId?: IntFieldUpdateOperationsInput | number
   }
 
   export type ResultadoCreateInput = {
@@ -4883,6 +6264,77 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     resultado?: FloatFieldUpdateOperationsInput | number
     signoVitalId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type PacientesCreateInput = {
+    nombre: string
+    sexo: string
+    edad: number
+    dni: number
+    habitacion: number
+    ingreso_paciente?: Date | string
+    signos?: SignosVitalesCreateNestedManyWithoutPacienteInput
+  }
+
+  export type PacientesUncheckedCreateInput = {
+    id?: number
+    nombre: string
+    sexo: string
+    edad: number
+    dni: number
+    habitacion: number
+    ingreso_paciente?: Date | string
+    signos?: SignosVitalesUncheckedCreateNestedManyWithoutPacienteInput
+  }
+
+  export type PacientesUpdateInput = {
+    nombre?: StringFieldUpdateOperationsInput | string
+    sexo?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    dni?: IntFieldUpdateOperationsInput | number
+    habitacion?: IntFieldUpdateOperationsInput | number
+    ingreso_paciente?: DateTimeFieldUpdateOperationsInput | Date | string
+    signos?: SignosVitalesUpdateManyWithoutPacienteNestedInput
+  }
+
+  export type PacientesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    sexo?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    dni?: IntFieldUpdateOperationsInput | number
+    habitacion?: IntFieldUpdateOperationsInput | number
+    ingreso_paciente?: DateTimeFieldUpdateOperationsInput | Date | string
+    signos?: SignosVitalesUncheckedUpdateManyWithoutPacienteNestedInput
+  }
+
+  export type PacientesCreateManyInput = {
+    id?: number
+    nombre: string
+    sexo: string
+    edad: number
+    dni: number
+    habitacion: number
+    ingreso_paciente?: Date | string
+  }
+
+  export type PacientesUpdateManyMutationInput = {
+    nombre?: StringFieldUpdateOperationsInput | string
+    sexo?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    dni?: IntFieldUpdateOperationsInput | number
+    habitacion?: IntFieldUpdateOperationsInput | number
+    ingreso_paciente?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PacientesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    sexo?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    dni?: IntFieldUpdateOperationsInput | number
+    habitacion?: IntFieldUpdateOperationsInput | number
+    ingreso_paciente?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -4999,6 +6451,11 @@ export namespace Prisma {
     none?: ResultadoWhereInput
   }
 
+  export type PacientesScalarRelationFilter = {
+    is?: PacientesWhereInput
+    isNot?: PacientesWhereInput
+  }
+
   export type ResultadoOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -5016,6 +6473,7 @@ export namespace Prisma {
     leucocitos?: SortOrder
     patologias_presentes?: SortOrder
     horario?: SortOrder
+    pacienteId?: SortOrder
   }
 
   export type SignosVitalesAvgOrderByAggregateInput = {
@@ -5029,6 +6487,7 @@ export namespace Prisma {
     lactato?: SortOrder
     proteina_creactiva?: SortOrder
     leucocitos?: SortOrder
+    pacienteId?: SortOrder
   }
 
   export type SignosVitalesMaxOrderByAggregateInput = {
@@ -5044,6 +6503,7 @@ export namespace Prisma {
     leucocitos?: SortOrder
     patologias_presentes?: SortOrder
     horario?: SortOrder
+    pacienteId?: SortOrder
   }
 
   export type SignosVitalesMinOrderByAggregateInput = {
@@ -5059,6 +6519,7 @@ export namespace Prisma {
     leucocitos?: SortOrder
     patologias_presentes?: SortOrder
     horario?: SortOrder
+    pacienteId?: SortOrder
   }
 
   export type SignosVitalesSumOrderByAggregateInput = {
@@ -5072,6 +6533,7 @@ export namespace Prisma {
     lactato?: SortOrder
     proteina_creactiva?: SortOrder
     leucocitos?: SortOrder
+    pacienteId?: SortOrder
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -5139,6 +6601,60 @@ export namespace Prisma {
     signoVitalId?: SortOrder
   }
 
+  export type SignosVitalesListRelationFilter = {
+    every?: SignosVitalesWhereInput
+    some?: SignosVitalesWhereInput
+    none?: SignosVitalesWhereInput
+  }
+
+  export type SignosVitalesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type PacientesCountOrderByAggregateInput = {
+    id?: SortOrder
+    nombre?: SortOrder
+    sexo?: SortOrder
+    edad?: SortOrder
+    dni?: SortOrder
+    habitacion?: SortOrder
+    ingreso_paciente?: SortOrder
+  }
+
+  export type PacientesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    edad?: SortOrder
+    dni?: SortOrder
+    habitacion?: SortOrder
+  }
+
+  export type PacientesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    nombre?: SortOrder
+    sexo?: SortOrder
+    edad?: SortOrder
+    dni?: SortOrder
+    habitacion?: SortOrder
+    ingreso_paciente?: SortOrder
+  }
+
+  export type PacientesMinOrderByAggregateInput = {
+    id?: SortOrder
+    nombre?: SortOrder
+    sexo?: SortOrder
+    edad?: SortOrder
+    dni?: SortOrder
+    habitacion?: SortOrder
+    ingreso_paciente?: SortOrder
+  }
+
+  export type PacientesSumOrderByAggregateInput = {
+    id?: SortOrder
+    edad?: SortOrder
+    dni?: SortOrder
+    habitacion?: SortOrder
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -5156,6 +6672,12 @@ export namespace Prisma {
     connectOrCreate?: ResultadoCreateOrConnectWithoutSignoVitalInput | ResultadoCreateOrConnectWithoutSignoVitalInput[]
     createMany?: ResultadoCreateManySignoVitalInputEnvelope
     connect?: ResultadoWhereUniqueInput | ResultadoWhereUniqueInput[]
+  }
+
+  export type PacientesCreateNestedOneWithoutSignosInput = {
+    create?: XOR<PacientesCreateWithoutSignosInput, PacientesUncheckedCreateWithoutSignosInput>
+    connectOrCreate?: PacientesCreateOrConnectWithoutSignosInput
+    connect?: PacientesWhereUniqueInput
   }
 
   export type ResultadoUncheckedCreateNestedManyWithoutSignoVitalInput = {
@@ -5191,6 +6713,14 @@ export namespace Prisma {
     deleteMany?: ResultadoScalarWhereInput | ResultadoScalarWhereInput[]
   }
 
+  export type PacientesUpdateOneRequiredWithoutSignosNestedInput = {
+    create?: XOR<PacientesCreateWithoutSignosInput, PacientesUncheckedCreateWithoutSignosInput>
+    connectOrCreate?: PacientesCreateOrConnectWithoutSignosInput
+    upsert?: PacientesUpsertWithoutSignosInput
+    connect?: PacientesWhereUniqueInput
+    update?: XOR<XOR<PacientesUpdateToOneWithWhereWithoutSignosInput, PacientesUpdateWithoutSignosInput>, PacientesUncheckedUpdateWithoutSignosInput>
+  }
+
   export type ResultadoUncheckedUpdateManyWithoutSignoVitalNestedInput = {
     create?: XOR<ResultadoCreateWithoutSignoVitalInput, ResultadoUncheckedCreateWithoutSignoVitalInput> | ResultadoCreateWithoutSignoVitalInput[] | ResultadoUncheckedCreateWithoutSignoVitalInput[]
     connectOrCreate?: ResultadoCreateOrConnectWithoutSignoVitalInput | ResultadoCreateOrConnectWithoutSignoVitalInput[]
@@ -5217,6 +6747,48 @@ export namespace Prisma {
     upsert?: SignosVitalesUpsertWithoutResultadosInput
     connect?: SignosVitalesWhereUniqueInput
     update?: XOR<XOR<SignosVitalesUpdateToOneWithWhereWithoutResultadosInput, SignosVitalesUpdateWithoutResultadosInput>, SignosVitalesUncheckedUpdateWithoutResultadosInput>
+  }
+
+  export type SignosVitalesCreateNestedManyWithoutPacienteInput = {
+    create?: XOR<SignosVitalesCreateWithoutPacienteInput, SignosVitalesUncheckedCreateWithoutPacienteInput> | SignosVitalesCreateWithoutPacienteInput[] | SignosVitalesUncheckedCreateWithoutPacienteInput[]
+    connectOrCreate?: SignosVitalesCreateOrConnectWithoutPacienteInput | SignosVitalesCreateOrConnectWithoutPacienteInput[]
+    createMany?: SignosVitalesCreateManyPacienteInputEnvelope
+    connect?: SignosVitalesWhereUniqueInput | SignosVitalesWhereUniqueInput[]
+  }
+
+  export type SignosVitalesUncheckedCreateNestedManyWithoutPacienteInput = {
+    create?: XOR<SignosVitalesCreateWithoutPacienteInput, SignosVitalesUncheckedCreateWithoutPacienteInput> | SignosVitalesCreateWithoutPacienteInput[] | SignosVitalesUncheckedCreateWithoutPacienteInput[]
+    connectOrCreate?: SignosVitalesCreateOrConnectWithoutPacienteInput | SignosVitalesCreateOrConnectWithoutPacienteInput[]
+    createMany?: SignosVitalesCreateManyPacienteInputEnvelope
+    connect?: SignosVitalesWhereUniqueInput | SignosVitalesWhereUniqueInput[]
+  }
+
+  export type SignosVitalesUpdateManyWithoutPacienteNestedInput = {
+    create?: XOR<SignosVitalesCreateWithoutPacienteInput, SignosVitalesUncheckedCreateWithoutPacienteInput> | SignosVitalesCreateWithoutPacienteInput[] | SignosVitalesUncheckedCreateWithoutPacienteInput[]
+    connectOrCreate?: SignosVitalesCreateOrConnectWithoutPacienteInput | SignosVitalesCreateOrConnectWithoutPacienteInput[]
+    upsert?: SignosVitalesUpsertWithWhereUniqueWithoutPacienteInput | SignosVitalesUpsertWithWhereUniqueWithoutPacienteInput[]
+    createMany?: SignosVitalesCreateManyPacienteInputEnvelope
+    set?: SignosVitalesWhereUniqueInput | SignosVitalesWhereUniqueInput[]
+    disconnect?: SignosVitalesWhereUniqueInput | SignosVitalesWhereUniqueInput[]
+    delete?: SignosVitalesWhereUniqueInput | SignosVitalesWhereUniqueInput[]
+    connect?: SignosVitalesWhereUniqueInput | SignosVitalesWhereUniqueInput[]
+    update?: SignosVitalesUpdateWithWhereUniqueWithoutPacienteInput | SignosVitalesUpdateWithWhereUniqueWithoutPacienteInput[]
+    updateMany?: SignosVitalesUpdateManyWithWhereWithoutPacienteInput | SignosVitalesUpdateManyWithWhereWithoutPacienteInput[]
+    deleteMany?: SignosVitalesScalarWhereInput | SignosVitalesScalarWhereInput[]
+  }
+
+  export type SignosVitalesUncheckedUpdateManyWithoutPacienteNestedInput = {
+    create?: XOR<SignosVitalesCreateWithoutPacienteInput, SignosVitalesUncheckedCreateWithoutPacienteInput> | SignosVitalesCreateWithoutPacienteInput[] | SignosVitalesUncheckedCreateWithoutPacienteInput[]
+    connectOrCreate?: SignosVitalesCreateOrConnectWithoutPacienteInput | SignosVitalesCreateOrConnectWithoutPacienteInput[]
+    upsert?: SignosVitalesUpsertWithWhereUniqueWithoutPacienteInput | SignosVitalesUpsertWithWhereUniqueWithoutPacienteInput[]
+    createMany?: SignosVitalesCreateManyPacienteInputEnvelope
+    set?: SignosVitalesWhereUniqueInput | SignosVitalesWhereUniqueInput[]
+    disconnect?: SignosVitalesWhereUniqueInput | SignosVitalesWhereUniqueInput[]
+    delete?: SignosVitalesWhereUniqueInput | SignosVitalesWhereUniqueInput[]
+    connect?: SignosVitalesWhereUniqueInput | SignosVitalesWhereUniqueInput[]
+    update?: SignosVitalesUpdateWithWhereUniqueWithoutPacienteInput | SignosVitalesUpdateWithWhereUniqueWithoutPacienteInput[]
+    updateMany?: SignosVitalesUpdateManyWithWhereWithoutPacienteInput | SignosVitalesUpdateManyWithWhereWithoutPacienteInput[]
+    deleteMany?: SignosVitalesScalarWhereInput | SignosVitalesScalarWhereInput[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -5348,6 +6920,30 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type PacientesCreateWithoutSignosInput = {
+    nombre: string
+    sexo: string
+    edad: number
+    dni: number
+    habitacion: number
+    ingreso_paciente?: Date | string
+  }
+
+  export type PacientesUncheckedCreateWithoutSignosInput = {
+    id?: number
+    nombre: string
+    sexo: string
+    edad: number
+    dni: number
+    habitacion: number
+    ingreso_paciente?: Date | string
+  }
+
+  export type PacientesCreateOrConnectWithoutSignosInput = {
+    where: PacientesWhereUniqueInput
+    create: XOR<PacientesCreateWithoutSignosInput, PacientesUncheckedCreateWithoutSignosInput>
+  }
+
   export type ResultadoUpsertWithWhereUniqueWithoutSignoVitalInput = {
     where: ResultadoWhereUniqueInput
     update: XOR<ResultadoUpdateWithoutSignoVitalInput, ResultadoUncheckedUpdateWithoutSignoVitalInput>
@@ -5373,6 +6969,36 @@ export namespace Prisma {
     signoVitalId?: IntFilter<"Resultado"> | number
   }
 
+  export type PacientesUpsertWithoutSignosInput = {
+    update: XOR<PacientesUpdateWithoutSignosInput, PacientesUncheckedUpdateWithoutSignosInput>
+    create: XOR<PacientesCreateWithoutSignosInput, PacientesUncheckedCreateWithoutSignosInput>
+    where?: PacientesWhereInput
+  }
+
+  export type PacientesUpdateToOneWithWhereWithoutSignosInput = {
+    where?: PacientesWhereInput
+    data: XOR<PacientesUpdateWithoutSignosInput, PacientesUncheckedUpdateWithoutSignosInput>
+  }
+
+  export type PacientesUpdateWithoutSignosInput = {
+    nombre?: StringFieldUpdateOperationsInput | string
+    sexo?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    dni?: IntFieldUpdateOperationsInput | number
+    habitacion?: IntFieldUpdateOperationsInput | number
+    ingreso_paciente?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PacientesUncheckedUpdateWithoutSignosInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    nombre?: StringFieldUpdateOperationsInput | string
+    sexo?: StringFieldUpdateOperationsInput | string
+    edad?: IntFieldUpdateOperationsInput | number
+    dni?: IntFieldUpdateOperationsInput | number
+    habitacion?: IntFieldUpdateOperationsInput | number
+    ingreso_paciente?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type SignosVitalesCreateWithoutResultadosInput = {
     frecuencia_cardiaca: number
     presion_arterial: number
@@ -5385,6 +7011,7 @@ export namespace Prisma {
     leucocitos: number
     patologias_presentes: string
     horario?: Date | string
+    paciente: PacientesCreateNestedOneWithoutSignosInput
   }
 
   export type SignosVitalesUncheckedCreateWithoutResultadosInput = {
@@ -5400,6 +7027,7 @@ export namespace Prisma {
     leucocitos: number
     patologias_presentes: string
     horario?: Date | string
+    pacienteId: number
   }
 
   export type SignosVitalesCreateOrConnectWithoutResultadosInput = {
@@ -5430,6 +7058,7 @@ export namespace Prisma {
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
     horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    paciente?: PacientesUpdateOneRequiredWithoutSignosNestedInput
   }
 
   export type SignosVitalesUncheckedUpdateWithoutResultadosInput = {
@@ -5445,6 +7074,83 @@ export namespace Prisma {
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
     horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    pacienteId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type SignosVitalesCreateWithoutPacienteInput = {
+    frecuencia_cardiaca: number
+    presion_arterial: number
+    frecuencia_respiratoria: number
+    temperatura_corporal: number
+    saturacion_oxigeno: number
+    procalcitonina: number
+    lactato: number
+    proteina_creactiva: number
+    leucocitos: number
+    patologias_presentes: string
+    horario?: Date | string
+    resultados?: ResultadoCreateNestedManyWithoutSignoVitalInput
+  }
+
+  export type SignosVitalesUncheckedCreateWithoutPacienteInput = {
+    id?: number
+    frecuencia_cardiaca: number
+    presion_arterial: number
+    frecuencia_respiratoria: number
+    temperatura_corporal: number
+    saturacion_oxigeno: number
+    procalcitonina: number
+    lactato: number
+    proteina_creactiva: number
+    leucocitos: number
+    patologias_presentes: string
+    horario?: Date | string
+    resultados?: ResultadoUncheckedCreateNestedManyWithoutSignoVitalInput
+  }
+
+  export type SignosVitalesCreateOrConnectWithoutPacienteInput = {
+    where: SignosVitalesWhereUniqueInput
+    create: XOR<SignosVitalesCreateWithoutPacienteInput, SignosVitalesUncheckedCreateWithoutPacienteInput>
+  }
+
+  export type SignosVitalesCreateManyPacienteInputEnvelope = {
+    data: SignosVitalesCreateManyPacienteInput | SignosVitalesCreateManyPacienteInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type SignosVitalesUpsertWithWhereUniqueWithoutPacienteInput = {
+    where: SignosVitalesWhereUniqueInput
+    update: XOR<SignosVitalesUpdateWithoutPacienteInput, SignosVitalesUncheckedUpdateWithoutPacienteInput>
+    create: XOR<SignosVitalesCreateWithoutPacienteInput, SignosVitalesUncheckedCreateWithoutPacienteInput>
+  }
+
+  export type SignosVitalesUpdateWithWhereUniqueWithoutPacienteInput = {
+    where: SignosVitalesWhereUniqueInput
+    data: XOR<SignosVitalesUpdateWithoutPacienteInput, SignosVitalesUncheckedUpdateWithoutPacienteInput>
+  }
+
+  export type SignosVitalesUpdateManyWithWhereWithoutPacienteInput = {
+    where: SignosVitalesScalarWhereInput
+    data: XOR<SignosVitalesUpdateManyMutationInput, SignosVitalesUncheckedUpdateManyWithoutPacienteInput>
+  }
+
+  export type SignosVitalesScalarWhereInput = {
+    AND?: SignosVitalesScalarWhereInput | SignosVitalesScalarWhereInput[]
+    OR?: SignosVitalesScalarWhereInput[]
+    NOT?: SignosVitalesScalarWhereInput | SignosVitalesScalarWhereInput[]
+    id?: IntFilter<"SignosVitales"> | number
+    frecuencia_cardiaca?: FloatFilter<"SignosVitales"> | number
+    presion_arterial?: FloatFilter<"SignosVitales"> | number
+    frecuencia_respiratoria?: FloatFilter<"SignosVitales"> | number
+    temperatura_corporal?: FloatFilter<"SignosVitales"> | number
+    saturacion_oxigeno?: FloatFilter<"SignosVitales"> | number
+    procalcitonina?: FloatFilter<"SignosVitales"> | number
+    lactato?: FloatFilter<"SignosVitales"> | number
+    proteina_creactiva?: FloatFilter<"SignosVitales"> | number
+    leucocitos?: FloatFilter<"SignosVitales"> | number
+    patologias_presentes?: StringFilter<"SignosVitales"> | string
+    horario?: DateTimeFilter<"SignosVitales"> | Date | string
+    pacienteId?: IntFilter<"SignosVitales"> | number
   }
 
   export type ResultadoCreateManySignoVitalInput = {
@@ -5464,6 +7170,67 @@ export namespace Prisma {
   export type ResultadoUncheckedUpdateManyWithoutSignoVitalInput = {
     id?: IntFieldUpdateOperationsInput | number
     resultado?: FloatFieldUpdateOperationsInput | number
+  }
+
+  export type SignosVitalesCreateManyPacienteInput = {
+    id?: number
+    frecuencia_cardiaca: number
+    presion_arterial: number
+    frecuencia_respiratoria: number
+    temperatura_corporal: number
+    saturacion_oxigeno: number
+    procalcitonina: number
+    lactato: number
+    proteina_creactiva: number
+    leucocitos: number
+    patologias_presentes: string
+    horario?: Date | string
+  }
+
+  export type SignosVitalesUpdateWithoutPacienteInput = {
+    frecuencia_cardiaca?: FloatFieldUpdateOperationsInput | number
+    presion_arterial?: FloatFieldUpdateOperationsInput | number
+    frecuencia_respiratoria?: FloatFieldUpdateOperationsInput | number
+    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
+    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
+    procalcitonina?: FloatFieldUpdateOperationsInput | number
+    lactato?: FloatFieldUpdateOperationsInput | number
+    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
+    leucocitos?: FloatFieldUpdateOperationsInput | number
+    patologias_presentes?: StringFieldUpdateOperationsInput | string
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    resultados?: ResultadoUpdateManyWithoutSignoVitalNestedInput
+  }
+
+  export type SignosVitalesUncheckedUpdateWithoutPacienteInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    frecuencia_cardiaca?: FloatFieldUpdateOperationsInput | number
+    presion_arterial?: FloatFieldUpdateOperationsInput | number
+    frecuencia_respiratoria?: FloatFieldUpdateOperationsInput | number
+    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
+    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
+    procalcitonina?: FloatFieldUpdateOperationsInput | number
+    lactato?: FloatFieldUpdateOperationsInput | number
+    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
+    leucocitos?: FloatFieldUpdateOperationsInput | number
+    patologias_presentes?: StringFieldUpdateOperationsInput | string
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    resultados?: ResultadoUncheckedUpdateManyWithoutSignoVitalNestedInput
+  }
+
+  export type SignosVitalesUncheckedUpdateManyWithoutPacienteInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    frecuencia_cardiaca?: FloatFieldUpdateOperationsInput | number
+    presion_arterial?: FloatFieldUpdateOperationsInput | number
+    frecuencia_respiratoria?: FloatFieldUpdateOperationsInput | number
+    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
+    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
+    procalcitonina?: FloatFieldUpdateOperationsInput | number
+    lactato?: FloatFieldUpdateOperationsInput | number
+    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
+    leucocitos?: FloatFieldUpdateOperationsInput | number
+    patologias_presentes?: StringFieldUpdateOperationsInput | string
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
