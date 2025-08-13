@@ -128,17 +128,17 @@ exports.Prisma.UserScalarFieldEnum = {
 
 exports.Prisma.SignosVitalesScalarFieldEnum = {
   id: 'id',
+  horario: 'horario',
   frecuencia_cardiaca: 'frecuencia_cardiaca',
-  presion_arterial: 'presion_arterial',
   frecuencia_respiratoria: 'frecuencia_respiratoria',
-  temperatura_corporal: 'temperatura_corporal',
-  saturacion_oxigeno: 'saturacion_oxigeno',
-  procalcitonina: 'procalcitonina',
   lactato: 'lactato',
-  proteina_creactiva: 'proteina_creactiva',
   leucocitos: 'leucocitos',
   patologias_presentes: 'patologias_presentes',
-  horario: 'horario',
+  presion_arterial: 'presion_arterial',
+  procalcitonina: 'procalcitonina',
+  proteina_creactiva: 'proteina_creactiva',
+  saturacion_oxigeno: 'saturacion_oxigeno',
+  temperatura_corporal: 'temperatura_corporal',
   pacienteId: 'pacienteId'
 };
 

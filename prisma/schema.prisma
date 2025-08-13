@@ -1,7 +1,7 @@
 generator client {
-  provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
-  binaryTargets = ["native", "windows", "darwin-arm64",  "rhel-openssl-3.0.x"]
+  provider      = "prisma-client-js"
+  output        = "../src/generated/prisma"
+  binaryTargets = ["native", "windows", "darwin-arm64", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
@@ -16,37 +16,37 @@ model User {
 }
 
 model SignosVitales {
-  id      Int      @id @default(autoincrement())
-  frecuencia_cardiaca Float
-  presion_arterial Float
+  id                      Int         @id @default(autoincrement())
+  horario                 DateTime    @default(now())
+  frecuencia_cardiaca     Float
   frecuencia_respiratoria Float
-  temperatura_corporal Float
-  saturacion_oxigeno Float
-  procalcitonina Float
-  lactato Float
-  proteina_creactiva Float
-  leucocitos Float
-  patologias_presentes String
-  horario DateTime @default(now())
-  resultados             Resultado[]
-  paciente               Pacientes @relation(fields: [pacienteId], references: [id])
-  pacienteId              Int 
+  lactato                 Float
+  leucocitos              Float
+  patologias_presentes    String
+  presion_arterial        Float
+  procalcitonina          Float
+  proteina_creactiva      Float
+  saturacion_oxigeno      Float
+  temperatura_corporal    Float
+  pacienteId              Int
+  resultados              Resultado[]
+  paciente                Pacientes   @relation(fields: [pacienteId], references: [id])
 }
 
 model Resultado {
-  id        Int     @id @default(autoincrement())
-  resultado Float
-  signoVital SignosVitales @relation(fields: [signoVitalId], references: [id])
+  id           Int           @id @default(autoincrement())
+  resultado    Float
   signoVitalId Int
+  signoVital   SignosVitales @relation(fields: [signoVitalId], references: [id])
 }
 
 model Pacientes {
-  id        Int     @id @default(autoincrement())
-  nombre    String
-  sexo    String
-  edad      Int
-  dni      Int @unique
-  habitacion Int
-  ingreso_paciente DateTime @default(now())
-  signos    SignosVitales[]
+  id               Int             @id @default(autoincrement())
+  nombre           String
+  sexo             String
+  edad             Int
+  dni              Int             @unique
+  habitacion       Int
+  ingreso_paciente DateTime        @default(now())
+  signos           SignosVitales[]
 }

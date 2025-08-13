@@ -17,27 +17,27 @@ model User {
 
 model SignosVitales {
   id                      Int         @id @default(autoincrement())
+  horario                 DateTime    @default(now())
   frecuencia_cardiaca     Float
-  presion_arterial        Float
   frecuencia_respiratoria Float
-  temperatura_corporal    Float
-  saturacion_oxigeno      Float
-  procalcitonina          Float
   lactato                 Float
-  proteina_creactiva      Float
   leucocitos              Float
   patologias_presentes    String
-  horario                 DateTime    @default(now())
+  presion_arterial        Float
+  procalcitonina          Float
+  proteina_creactiva      Float
+  saturacion_oxigeno      Float
+  temperatura_corporal    Float
+  pacienteId              Int
   resultados              Resultado[]
   paciente                Pacientes   @relation(fields: [pacienteId], references: [id])
-  pacienteId              Int
 }
 
 model Resultado {
   id           Int           @id @default(autoincrement())
   resultado    Float
-  signoVital   SignosVitales @relation(fields: [signoVitalId], references: [id])
   signoVitalId Int
+  signoVital   SignosVitales @relation(fields: [signoVitalId], references: [id])
 }
 
 model Pacientes {

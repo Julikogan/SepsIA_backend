@@ -2208,76 +2208,76 @@ export namespace Prisma {
   export type SignosVitalesAvgAggregateOutputType = {
     id: number | null
     frecuencia_cardiaca: number | null
-    presion_arterial: number | null
     frecuencia_respiratoria: number | null
-    temperatura_corporal: number | null
-    saturacion_oxigeno: number | null
-    procalcitonina: number | null
     lactato: number | null
-    proteina_creactiva: number | null
     leucocitos: number | null
+    presion_arterial: number | null
+    procalcitonina: number | null
+    proteina_creactiva: number | null
+    saturacion_oxigeno: number | null
+    temperatura_corporal: number | null
     pacienteId: number | null
   }
 
   export type SignosVitalesSumAggregateOutputType = {
     id: number | null
     frecuencia_cardiaca: number | null
-    presion_arterial: number | null
     frecuencia_respiratoria: number | null
-    temperatura_corporal: number | null
-    saturacion_oxigeno: number | null
-    procalcitonina: number | null
     lactato: number | null
-    proteina_creactiva: number | null
     leucocitos: number | null
+    presion_arterial: number | null
+    procalcitonina: number | null
+    proteina_creactiva: number | null
+    saturacion_oxigeno: number | null
+    temperatura_corporal: number | null
     pacienteId: number | null
   }
 
   export type SignosVitalesMinAggregateOutputType = {
     id: number | null
+    horario: Date | null
     frecuencia_cardiaca: number | null
-    presion_arterial: number | null
     frecuencia_respiratoria: number | null
-    temperatura_corporal: number | null
-    saturacion_oxigeno: number | null
-    procalcitonina: number | null
     lactato: number | null
-    proteina_creactiva: number | null
     leucocitos: number | null
     patologias_presentes: string | null
-    horario: Date | null
+    presion_arterial: number | null
+    procalcitonina: number | null
+    proteina_creactiva: number | null
+    saturacion_oxigeno: number | null
+    temperatura_corporal: number | null
     pacienteId: number | null
   }
 
   export type SignosVitalesMaxAggregateOutputType = {
     id: number | null
+    horario: Date | null
     frecuencia_cardiaca: number | null
-    presion_arterial: number | null
     frecuencia_respiratoria: number | null
-    temperatura_corporal: number | null
-    saturacion_oxigeno: number | null
-    procalcitonina: number | null
     lactato: number | null
-    proteina_creactiva: number | null
     leucocitos: number | null
     patologias_presentes: string | null
-    horario: Date | null
+    presion_arterial: number | null
+    procalcitonina: number | null
+    proteina_creactiva: number | null
+    saturacion_oxigeno: number | null
+    temperatura_corporal: number | null
     pacienteId: number | null
   }
 
   export type SignosVitalesCountAggregateOutputType = {
     id: number
+    horario: number
     frecuencia_cardiaca: number
-    presion_arterial: number
     frecuencia_respiratoria: number
-    temperatura_corporal: number
-    saturacion_oxigeno: number
-    procalcitonina: number
     lactato: number
-    proteina_creactiva: number
     leucocitos: number
     patologias_presentes: number
-    horario: number
+    presion_arterial: number
+    procalcitonina: number
+    proteina_creactiva: number
+    saturacion_oxigeno: number
+    temperatura_corporal: number
     pacienteId: number
     _all: number
   }
@@ -2286,76 +2286,76 @@ export namespace Prisma {
   export type SignosVitalesAvgAggregateInputType = {
     id?: true
     frecuencia_cardiaca?: true
-    presion_arterial?: true
     frecuencia_respiratoria?: true
-    temperatura_corporal?: true
-    saturacion_oxigeno?: true
-    procalcitonina?: true
     lactato?: true
-    proteina_creactiva?: true
     leucocitos?: true
+    presion_arterial?: true
+    procalcitonina?: true
+    proteina_creactiva?: true
+    saturacion_oxigeno?: true
+    temperatura_corporal?: true
     pacienteId?: true
   }
 
   export type SignosVitalesSumAggregateInputType = {
     id?: true
     frecuencia_cardiaca?: true
-    presion_arterial?: true
     frecuencia_respiratoria?: true
-    temperatura_corporal?: true
-    saturacion_oxigeno?: true
-    procalcitonina?: true
     lactato?: true
-    proteina_creactiva?: true
     leucocitos?: true
+    presion_arterial?: true
+    procalcitonina?: true
+    proteina_creactiva?: true
+    saturacion_oxigeno?: true
+    temperatura_corporal?: true
     pacienteId?: true
   }
 
   export type SignosVitalesMinAggregateInputType = {
     id?: true
+    horario?: true
     frecuencia_cardiaca?: true
-    presion_arterial?: true
     frecuencia_respiratoria?: true
-    temperatura_corporal?: true
-    saturacion_oxigeno?: true
-    procalcitonina?: true
     lactato?: true
-    proteina_creactiva?: true
     leucocitos?: true
     patologias_presentes?: true
-    horario?: true
+    presion_arterial?: true
+    procalcitonina?: true
+    proteina_creactiva?: true
+    saturacion_oxigeno?: true
+    temperatura_corporal?: true
     pacienteId?: true
   }
 
   export type SignosVitalesMaxAggregateInputType = {
     id?: true
+    horario?: true
     frecuencia_cardiaca?: true
-    presion_arterial?: true
     frecuencia_respiratoria?: true
-    temperatura_corporal?: true
-    saturacion_oxigeno?: true
-    procalcitonina?: true
     lactato?: true
-    proteina_creactiva?: true
     leucocitos?: true
     patologias_presentes?: true
-    horario?: true
+    presion_arterial?: true
+    procalcitonina?: true
+    proteina_creactiva?: true
+    saturacion_oxigeno?: true
+    temperatura_corporal?: true
     pacienteId?: true
   }
 
   export type SignosVitalesCountAggregateInputType = {
     id?: true
+    horario?: true
     frecuencia_cardiaca?: true
-    presion_arterial?: true
     frecuencia_respiratoria?: true
-    temperatura_corporal?: true
-    saturacion_oxigeno?: true
-    procalcitonina?: true
     lactato?: true
-    proteina_creactiva?: true
     leucocitos?: true
     patologias_presentes?: true
-    horario?: true
+    presion_arterial?: true
+    procalcitonina?: true
+    proteina_creactiva?: true
+    saturacion_oxigeno?: true
+    temperatura_corporal?: true
     pacienteId?: true
     _all?: true
   }
@@ -2448,17 +2448,17 @@ export namespace Prisma {
 
   export type SignosVitalesGroupByOutputType = {
     id: number
+    horario: Date
     frecuencia_cardiaca: number
-    presion_arterial: number
     frecuencia_respiratoria: number
-    temperatura_corporal: number
-    saturacion_oxigeno: number
-    procalcitonina: number
     lactato: number
-    proteina_creactiva: number
     leucocitos: number
     patologias_presentes: string
-    horario: Date
+    presion_arterial: number
+    procalcitonina: number
+    proteina_creactiva: number
+    saturacion_oxigeno: number
+    temperatura_corporal: number
     pacienteId: number
     _count: SignosVitalesCountAggregateOutputType | null
     _avg: SignosVitalesAvgAggregateOutputType | null
@@ -2483,17 +2483,17 @@ export namespace Prisma {
 
   export type SignosVitalesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    horario?: boolean
     frecuencia_cardiaca?: boolean
-    presion_arterial?: boolean
     frecuencia_respiratoria?: boolean
-    temperatura_corporal?: boolean
-    saturacion_oxigeno?: boolean
-    procalcitonina?: boolean
     lactato?: boolean
-    proteina_creactiva?: boolean
     leucocitos?: boolean
     patologias_presentes?: boolean
-    horario?: boolean
+    presion_arterial?: boolean
+    procalcitonina?: boolean
+    proteina_creactiva?: boolean
+    saturacion_oxigeno?: boolean
+    temperatura_corporal?: boolean
     pacienteId?: boolean
     resultados?: boolean | SignosVitales$resultadosArgs<ExtArgs>
     paciente?: boolean | PacientesDefaultArgs<ExtArgs>
@@ -2502,55 +2502,55 @@ export namespace Prisma {
 
   export type SignosVitalesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    horario?: boolean
     frecuencia_cardiaca?: boolean
-    presion_arterial?: boolean
     frecuencia_respiratoria?: boolean
-    temperatura_corporal?: boolean
-    saturacion_oxigeno?: boolean
-    procalcitonina?: boolean
     lactato?: boolean
-    proteina_creactiva?: boolean
     leucocitos?: boolean
     patologias_presentes?: boolean
-    horario?: boolean
+    presion_arterial?: boolean
+    procalcitonina?: boolean
+    proteina_creactiva?: boolean
+    saturacion_oxigeno?: boolean
+    temperatura_corporal?: boolean
     pacienteId?: boolean
     paciente?: boolean | PacientesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["signosVitales"]>
 
   export type SignosVitalesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    horario?: boolean
     frecuencia_cardiaca?: boolean
-    presion_arterial?: boolean
     frecuencia_respiratoria?: boolean
-    temperatura_corporal?: boolean
-    saturacion_oxigeno?: boolean
-    procalcitonina?: boolean
     lactato?: boolean
-    proteina_creactiva?: boolean
     leucocitos?: boolean
     patologias_presentes?: boolean
-    horario?: boolean
+    presion_arterial?: boolean
+    procalcitonina?: boolean
+    proteina_creactiva?: boolean
+    saturacion_oxigeno?: boolean
+    temperatura_corporal?: boolean
     pacienteId?: boolean
     paciente?: boolean | PacientesDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["signosVitales"]>
 
   export type SignosVitalesSelectScalar = {
     id?: boolean
+    horario?: boolean
     frecuencia_cardiaca?: boolean
-    presion_arterial?: boolean
     frecuencia_respiratoria?: boolean
-    temperatura_corporal?: boolean
-    saturacion_oxigeno?: boolean
-    procalcitonina?: boolean
     lactato?: boolean
-    proteina_creactiva?: boolean
     leucocitos?: boolean
     patologias_presentes?: boolean
-    horario?: boolean
+    presion_arterial?: boolean
+    procalcitonina?: boolean
+    proteina_creactiva?: boolean
+    saturacion_oxigeno?: boolean
+    temperatura_corporal?: boolean
     pacienteId?: boolean
   }
 
-  export type SignosVitalesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "frecuencia_cardiaca" | "presion_arterial" | "frecuencia_respiratoria" | "temperatura_corporal" | "saturacion_oxigeno" | "procalcitonina" | "lactato" | "proteina_creactiva" | "leucocitos" | "patologias_presentes" | "horario" | "pacienteId", ExtArgs["result"]["signosVitales"]>
+  export type SignosVitalesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "horario" | "frecuencia_cardiaca" | "frecuencia_respiratoria" | "lactato" | "leucocitos" | "patologias_presentes" | "presion_arterial" | "procalcitonina" | "proteina_creactiva" | "saturacion_oxigeno" | "temperatura_corporal" | "pacienteId", ExtArgs["result"]["signosVitales"]>
   export type SignosVitalesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     resultados?: boolean | SignosVitales$resultadosArgs<ExtArgs>
     paciente?: boolean | PacientesDefaultArgs<ExtArgs>
@@ -2571,17 +2571,17 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      horario: Date
       frecuencia_cardiaca: number
-      presion_arterial: number
       frecuencia_respiratoria: number
-      temperatura_corporal: number
-      saturacion_oxigeno: number
-      procalcitonina: number
       lactato: number
-      proteina_creactiva: number
       leucocitos: number
       patologias_presentes: string
-      horario: Date
+      presion_arterial: number
+      procalcitonina: number
+      proteina_creactiva: number
+      saturacion_oxigeno: number
+      temperatura_corporal: number
       pacienteId: number
     }, ExtArgs["result"]["signosVitales"]>
     composites: {}
@@ -3009,17 +3009,17 @@ export namespace Prisma {
    */
   interface SignosVitalesFieldRefs {
     readonly id: FieldRef<"SignosVitales", 'Int'>
+    readonly horario: FieldRef<"SignosVitales", 'DateTime'>
     readonly frecuencia_cardiaca: FieldRef<"SignosVitales", 'Float'>
-    readonly presion_arterial: FieldRef<"SignosVitales", 'Float'>
     readonly frecuencia_respiratoria: FieldRef<"SignosVitales", 'Float'>
-    readonly temperatura_corporal: FieldRef<"SignosVitales", 'Float'>
-    readonly saturacion_oxigeno: FieldRef<"SignosVitales", 'Float'>
-    readonly procalcitonina: FieldRef<"SignosVitales", 'Float'>
     readonly lactato: FieldRef<"SignosVitales", 'Float'>
-    readonly proteina_creactiva: FieldRef<"SignosVitales", 'Float'>
     readonly leucocitos: FieldRef<"SignosVitales", 'Float'>
     readonly patologias_presentes: FieldRef<"SignosVitales", 'String'>
-    readonly horario: FieldRef<"SignosVitales", 'DateTime'>
+    readonly presion_arterial: FieldRef<"SignosVitales", 'Float'>
+    readonly procalcitonina: FieldRef<"SignosVitales", 'Float'>
+    readonly proteina_creactiva: FieldRef<"SignosVitales", 'Float'>
+    readonly saturacion_oxigeno: FieldRef<"SignosVitales", 'Float'>
+    readonly temperatura_corporal: FieldRef<"SignosVitales", 'Float'>
     readonly pacienteId: FieldRef<"SignosVitales", 'Int'>
   }
     
@@ -5700,17 +5700,17 @@ export namespace Prisma {
 
   export const SignosVitalesScalarFieldEnum: {
     id: 'id',
+    horario: 'horario',
     frecuencia_cardiaca: 'frecuencia_cardiaca',
-    presion_arterial: 'presion_arterial',
     frecuencia_respiratoria: 'frecuencia_respiratoria',
-    temperatura_corporal: 'temperatura_corporal',
-    saturacion_oxigeno: 'saturacion_oxigeno',
-    procalcitonina: 'procalcitonina',
     lactato: 'lactato',
-    proteina_creactiva: 'proteina_creactiva',
     leucocitos: 'leucocitos',
     patologias_presentes: 'patologias_presentes',
-    horario: 'horario',
+    presion_arterial: 'presion_arterial',
+    procalcitonina: 'procalcitonina',
+    proteina_creactiva: 'proteina_creactiva',
+    saturacion_oxigeno: 'saturacion_oxigeno',
+    temperatura_corporal: 'temperatura_corporal',
     pacienteId: 'pacienteId'
   };
 
@@ -5789,20 +5789,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Float'
-   */
-  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
-    
-
-
-  /**
-   * Reference to a field of type 'Float[]'
-   */
-  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
-    
-
-
-  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -5813,6 +5799,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float'
+   */
+  export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+  /**
+   * Reference to a field of type 'Float[]'
+   */
+  export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
   /**
    * Deep Input Types
@@ -5868,17 +5868,17 @@ export namespace Prisma {
     OR?: SignosVitalesWhereInput[]
     NOT?: SignosVitalesWhereInput | SignosVitalesWhereInput[]
     id?: IntFilter<"SignosVitales"> | number
+    horario?: DateTimeFilter<"SignosVitales"> | Date | string
     frecuencia_cardiaca?: FloatFilter<"SignosVitales"> | number
-    presion_arterial?: FloatFilter<"SignosVitales"> | number
     frecuencia_respiratoria?: FloatFilter<"SignosVitales"> | number
-    temperatura_corporal?: FloatFilter<"SignosVitales"> | number
-    saturacion_oxigeno?: FloatFilter<"SignosVitales"> | number
-    procalcitonina?: FloatFilter<"SignosVitales"> | number
     lactato?: FloatFilter<"SignosVitales"> | number
-    proteina_creactiva?: FloatFilter<"SignosVitales"> | number
     leucocitos?: FloatFilter<"SignosVitales"> | number
     patologias_presentes?: StringFilter<"SignosVitales"> | string
-    horario?: DateTimeFilter<"SignosVitales"> | Date | string
+    presion_arterial?: FloatFilter<"SignosVitales"> | number
+    procalcitonina?: FloatFilter<"SignosVitales"> | number
+    proteina_creactiva?: FloatFilter<"SignosVitales"> | number
+    saturacion_oxigeno?: FloatFilter<"SignosVitales"> | number
+    temperatura_corporal?: FloatFilter<"SignosVitales"> | number
     pacienteId?: IntFilter<"SignosVitales"> | number
     resultados?: ResultadoListRelationFilter
     paciente?: XOR<PacientesScalarRelationFilter, PacientesWhereInput>
@@ -5886,17 +5886,17 @@ export namespace Prisma {
 
   export type SignosVitalesOrderByWithRelationInput = {
     id?: SortOrder
+    horario?: SortOrder
     frecuencia_cardiaca?: SortOrder
-    presion_arterial?: SortOrder
     frecuencia_respiratoria?: SortOrder
-    temperatura_corporal?: SortOrder
-    saturacion_oxigeno?: SortOrder
-    procalcitonina?: SortOrder
     lactato?: SortOrder
-    proteina_creactiva?: SortOrder
     leucocitos?: SortOrder
     patologias_presentes?: SortOrder
-    horario?: SortOrder
+    presion_arterial?: SortOrder
+    procalcitonina?: SortOrder
+    proteina_creactiva?: SortOrder
+    saturacion_oxigeno?: SortOrder
+    temperatura_corporal?: SortOrder
     pacienteId?: SortOrder
     resultados?: ResultadoOrderByRelationAggregateInput
     paciente?: PacientesOrderByWithRelationInput
@@ -5907,17 +5907,17 @@ export namespace Prisma {
     AND?: SignosVitalesWhereInput | SignosVitalesWhereInput[]
     OR?: SignosVitalesWhereInput[]
     NOT?: SignosVitalesWhereInput | SignosVitalesWhereInput[]
+    horario?: DateTimeFilter<"SignosVitales"> | Date | string
     frecuencia_cardiaca?: FloatFilter<"SignosVitales"> | number
-    presion_arterial?: FloatFilter<"SignosVitales"> | number
     frecuencia_respiratoria?: FloatFilter<"SignosVitales"> | number
-    temperatura_corporal?: FloatFilter<"SignosVitales"> | number
-    saturacion_oxigeno?: FloatFilter<"SignosVitales"> | number
-    procalcitonina?: FloatFilter<"SignosVitales"> | number
     lactato?: FloatFilter<"SignosVitales"> | number
-    proteina_creactiva?: FloatFilter<"SignosVitales"> | number
     leucocitos?: FloatFilter<"SignosVitales"> | number
     patologias_presentes?: StringFilter<"SignosVitales"> | string
-    horario?: DateTimeFilter<"SignosVitales"> | Date | string
+    presion_arterial?: FloatFilter<"SignosVitales"> | number
+    procalcitonina?: FloatFilter<"SignosVitales"> | number
+    proteina_creactiva?: FloatFilter<"SignosVitales"> | number
+    saturacion_oxigeno?: FloatFilter<"SignosVitales"> | number
+    temperatura_corporal?: FloatFilter<"SignosVitales"> | number
     pacienteId?: IntFilter<"SignosVitales"> | number
     resultados?: ResultadoListRelationFilter
     paciente?: XOR<PacientesScalarRelationFilter, PacientesWhereInput>
@@ -5925,17 +5925,17 @@ export namespace Prisma {
 
   export type SignosVitalesOrderByWithAggregationInput = {
     id?: SortOrder
+    horario?: SortOrder
     frecuencia_cardiaca?: SortOrder
-    presion_arterial?: SortOrder
     frecuencia_respiratoria?: SortOrder
-    temperatura_corporal?: SortOrder
-    saturacion_oxigeno?: SortOrder
-    procalcitonina?: SortOrder
     lactato?: SortOrder
-    proteina_creactiva?: SortOrder
     leucocitos?: SortOrder
     patologias_presentes?: SortOrder
-    horario?: SortOrder
+    presion_arterial?: SortOrder
+    procalcitonina?: SortOrder
+    proteina_creactiva?: SortOrder
+    saturacion_oxigeno?: SortOrder
+    temperatura_corporal?: SortOrder
     pacienteId?: SortOrder
     _count?: SignosVitalesCountOrderByAggregateInput
     _avg?: SignosVitalesAvgOrderByAggregateInput
@@ -5949,17 +5949,17 @@ export namespace Prisma {
     OR?: SignosVitalesScalarWhereWithAggregatesInput[]
     NOT?: SignosVitalesScalarWhereWithAggregatesInput | SignosVitalesScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"SignosVitales"> | number
+    horario?: DateTimeWithAggregatesFilter<"SignosVitales"> | Date | string
     frecuencia_cardiaca?: FloatWithAggregatesFilter<"SignosVitales"> | number
-    presion_arterial?: FloatWithAggregatesFilter<"SignosVitales"> | number
     frecuencia_respiratoria?: FloatWithAggregatesFilter<"SignosVitales"> | number
-    temperatura_corporal?: FloatWithAggregatesFilter<"SignosVitales"> | number
-    saturacion_oxigeno?: FloatWithAggregatesFilter<"SignosVitales"> | number
-    procalcitonina?: FloatWithAggregatesFilter<"SignosVitales"> | number
     lactato?: FloatWithAggregatesFilter<"SignosVitales"> | number
-    proteina_creactiva?: FloatWithAggregatesFilter<"SignosVitales"> | number
     leucocitos?: FloatWithAggregatesFilter<"SignosVitales"> | number
     patologias_presentes?: StringWithAggregatesFilter<"SignosVitales"> | string
-    horario?: DateTimeWithAggregatesFilter<"SignosVitales"> | Date | string
+    presion_arterial?: FloatWithAggregatesFilter<"SignosVitales"> | number
+    procalcitonina?: FloatWithAggregatesFilter<"SignosVitales"> | number
+    proteina_creactiva?: FloatWithAggregatesFilter<"SignosVitales"> | number
+    saturacion_oxigeno?: FloatWithAggregatesFilter<"SignosVitales"> | number
+    temperatura_corporal?: FloatWithAggregatesFilter<"SignosVitales"> | number
     pacienteId?: IntWithAggregatesFilter<"SignosVitales"> | number
   }
 
@@ -6117,114 +6117,114 @@ export namespace Prisma {
   }
 
   export type SignosVitalesCreateInput = {
+    horario?: Date | string
     frecuencia_cardiaca: number
-    presion_arterial: number
     frecuencia_respiratoria: number
-    temperatura_corporal: number
-    saturacion_oxigeno: number
-    procalcitonina: number
     lactato: number
-    proteina_creactiva: number
     leucocitos: number
     patologias_presentes: string
-    horario?: Date | string
+    presion_arterial: number
+    procalcitonina: number
+    proteina_creactiva: number
+    saturacion_oxigeno: number
+    temperatura_corporal: number
     resultados?: ResultadoCreateNestedManyWithoutSignoVitalInput
     paciente: PacientesCreateNestedOneWithoutSignosInput
   }
 
   export type SignosVitalesUncheckedCreateInput = {
     id?: number
+    horario?: Date | string
     frecuencia_cardiaca: number
-    presion_arterial: number
     frecuencia_respiratoria: number
-    temperatura_corporal: number
-    saturacion_oxigeno: number
-    procalcitonina: number
     lactato: number
-    proteina_creactiva: number
     leucocitos: number
     patologias_presentes: string
-    horario?: Date | string
+    presion_arterial: number
+    procalcitonina: number
+    proteina_creactiva: number
+    saturacion_oxigeno: number
+    temperatura_corporal: number
     pacienteId: number
     resultados?: ResultadoUncheckedCreateNestedManyWithoutSignoVitalInput
   }
 
   export type SignosVitalesUpdateInput = {
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
     frecuencia_cardiaca?: FloatFieldUpdateOperationsInput | number
-    presion_arterial?: FloatFieldUpdateOperationsInput | number
     frecuencia_respiratoria?: FloatFieldUpdateOperationsInput | number
-    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
-    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
-    procalcitonina?: FloatFieldUpdateOperationsInput | number
     lactato?: FloatFieldUpdateOperationsInput | number
-    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    presion_arterial?: FloatFieldUpdateOperationsInput | number
+    procalcitonina?: FloatFieldUpdateOperationsInput | number
+    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
+    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
+    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
     resultados?: ResultadoUpdateManyWithoutSignoVitalNestedInput
     paciente?: PacientesUpdateOneRequiredWithoutSignosNestedInput
   }
 
   export type SignosVitalesUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
     frecuencia_cardiaca?: FloatFieldUpdateOperationsInput | number
-    presion_arterial?: FloatFieldUpdateOperationsInput | number
     frecuencia_respiratoria?: FloatFieldUpdateOperationsInput | number
-    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
-    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
-    procalcitonina?: FloatFieldUpdateOperationsInput | number
     lactato?: FloatFieldUpdateOperationsInput | number
-    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    presion_arterial?: FloatFieldUpdateOperationsInput | number
+    procalcitonina?: FloatFieldUpdateOperationsInput | number
+    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
+    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
+    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
     pacienteId?: IntFieldUpdateOperationsInput | number
     resultados?: ResultadoUncheckedUpdateManyWithoutSignoVitalNestedInput
   }
 
   export type SignosVitalesCreateManyInput = {
     id?: number
+    horario?: Date | string
     frecuencia_cardiaca: number
-    presion_arterial: number
     frecuencia_respiratoria: number
-    temperatura_corporal: number
-    saturacion_oxigeno: number
-    procalcitonina: number
     lactato: number
-    proteina_creactiva: number
     leucocitos: number
     patologias_presentes: string
-    horario?: Date | string
+    presion_arterial: number
+    procalcitonina: number
+    proteina_creactiva: number
+    saturacion_oxigeno: number
+    temperatura_corporal: number
     pacienteId: number
   }
 
   export type SignosVitalesUpdateManyMutationInput = {
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
     frecuencia_cardiaca?: FloatFieldUpdateOperationsInput | number
-    presion_arterial?: FloatFieldUpdateOperationsInput | number
     frecuencia_respiratoria?: FloatFieldUpdateOperationsInput | number
-    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
-    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
-    procalcitonina?: FloatFieldUpdateOperationsInput | number
     lactato?: FloatFieldUpdateOperationsInput | number
-    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    presion_arterial?: FloatFieldUpdateOperationsInput | number
+    procalcitonina?: FloatFieldUpdateOperationsInput | number
+    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
+    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
+    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
   }
 
   export type SignosVitalesUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
     frecuencia_cardiaca?: FloatFieldUpdateOperationsInput | number
-    presion_arterial?: FloatFieldUpdateOperationsInput | number
     frecuencia_respiratoria?: FloatFieldUpdateOperationsInput | number
-    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
-    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
-    procalcitonina?: FloatFieldUpdateOperationsInput | number
     lactato?: FloatFieldUpdateOperationsInput | number
-    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    presion_arterial?: FloatFieldUpdateOperationsInput | number
+    procalcitonina?: FloatFieldUpdateOperationsInput | number
+    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
+    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
+    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
     pacienteId?: IntFieldUpdateOperationsInput | number
   }
 
@@ -6423,17 +6423,6 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type FloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
-  }
-
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -6443,6 +6432,17 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type FloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
   export type ResultadoListRelationFilter = {
@@ -6462,78 +6462,92 @@ export namespace Prisma {
 
   export type SignosVitalesCountOrderByAggregateInput = {
     id?: SortOrder
+    horario?: SortOrder
     frecuencia_cardiaca?: SortOrder
-    presion_arterial?: SortOrder
     frecuencia_respiratoria?: SortOrder
-    temperatura_corporal?: SortOrder
-    saturacion_oxigeno?: SortOrder
-    procalcitonina?: SortOrder
     lactato?: SortOrder
-    proteina_creactiva?: SortOrder
     leucocitos?: SortOrder
     patologias_presentes?: SortOrder
-    horario?: SortOrder
+    presion_arterial?: SortOrder
+    procalcitonina?: SortOrder
+    proteina_creactiva?: SortOrder
+    saturacion_oxigeno?: SortOrder
+    temperatura_corporal?: SortOrder
     pacienteId?: SortOrder
   }
 
   export type SignosVitalesAvgOrderByAggregateInput = {
     id?: SortOrder
     frecuencia_cardiaca?: SortOrder
-    presion_arterial?: SortOrder
     frecuencia_respiratoria?: SortOrder
-    temperatura_corporal?: SortOrder
-    saturacion_oxigeno?: SortOrder
-    procalcitonina?: SortOrder
     lactato?: SortOrder
-    proteina_creactiva?: SortOrder
     leucocitos?: SortOrder
+    presion_arterial?: SortOrder
+    procalcitonina?: SortOrder
+    proteina_creactiva?: SortOrder
+    saturacion_oxigeno?: SortOrder
+    temperatura_corporal?: SortOrder
     pacienteId?: SortOrder
   }
 
   export type SignosVitalesMaxOrderByAggregateInput = {
     id?: SortOrder
+    horario?: SortOrder
     frecuencia_cardiaca?: SortOrder
-    presion_arterial?: SortOrder
     frecuencia_respiratoria?: SortOrder
-    temperatura_corporal?: SortOrder
-    saturacion_oxigeno?: SortOrder
-    procalcitonina?: SortOrder
     lactato?: SortOrder
-    proteina_creactiva?: SortOrder
     leucocitos?: SortOrder
     patologias_presentes?: SortOrder
-    horario?: SortOrder
+    presion_arterial?: SortOrder
+    procalcitonina?: SortOrder
+    proteina_creactiva?: SortOrder
+    saturacion_oxigeno?: SortOrder
+    temperatura_corporal?: SortOrder
     pacienteId?: SortOrder
   }
 
   export type SignosVitalesMinOrderByAggregateInput = {
     id?: SortOrder
+    horario?: SortOrder
     frecuencia_cardiaca?: SortOrder
-    presion_arterial?: SortOrder
     frecuencia_respiratoria?: SortOrder
-    temperatura_corporal?: SortOrder
-    saturacion_oxigeno?: SortOrder
-    procalcitonina?: SortOrder
     lactato?: SortOrder
-    proteina_creactiva?: SortOrder
     leucocitos?: SortOrder
     patologias_presentes?: SortOrder
-    horario?: SortOrder
+    presion_arterial?: SortOrder
+    procalcitonina?: SortOrder
+    proteina_creactiva?: SortOrder
+    saturacion_oxigeno?: SortOrder
+    temperatura_corporal?: SortOrder
     pacienteId?: SortOrder
   }
 
   export type SignosVitalesSumOrderByAggregateInput = {
     id?: SortOrder
     frecuencia_cardiaca?: SortOrder
-    presion_arterial?: SortOrder
     frecuencia_respiratoria?: SortOrder
-    temperatura_corporal?: SortOrder
-    saturacion_oxigeno?: SortOrder
-    procalcitonina?: SortOrder
     lactato?: SortOrder
-    proteina_creactiva?: SortOrder
     leucocitos?: SortOrder
+    presion_arterial?: SortOrder
+    procalcitonina?: SortOrder
+    proteina_creactiva?: SortOrder
+    saturacion_oxigeno?: SortOrder
+    temperatura_corporal?: SortOrder
     pacienteId?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -6550,20 +6564,6 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
-  }
-
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type SignosVitalesScalarRelationFilter = {
@@ -6687,16 +6687,16 @@ export namespace Prisma {
     connect?: ResultadoWhereUniqueInput | ResultadoWhereUniqueInput[]
   }
 
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
   export type FloatFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
-  }
-
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
   }
 
   export type ResultadoUpdateManyWithoutSignoVitalNestedInput = {
@@ -6871,6 +6871,20 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -6885,20 +6899,6 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
   export type ResultadoCreateWithoutSignoVitalInput = {
@@ -7000,33 +7000,33 @@ export namespace Prisma {
   }
 
   export type SignosVitalesCreateWithoutResultadosInput = {
+    horario?: Date | string
     frecuencia_cardiaca: number
-    presion_arterial: number
     frecuencia_respiratoria: number
-    temperatura_corporal: number
-    saturacion_oxigeno: number
-    procalcitonina: number
     lactato: number
-    proteina_creactiva: number
     leucocitos: number
     patologias_presentes: string
-    horario?: Date | string
+    presion_arterial: number
+    procalcitonina: number
+    proteina_creactiva: number
+    saturacion_oxigeno: number
+    temperatura_corporal: number
     paciente: PacientesCreateNestedOneWithoutSignosInput
   }
 
   export type SignosVitalesUncheckedCreateWithoutResultadosInput = {
     id?: number
+    horario?: Date | string
     frecuencia_cardiaca: number
-    presion_arterial: number
     frecuencia_respiratoria: number
-    temperatura_corporal: number
-    saturacion_oxigeno: number
-    procalcitonina: number
     lactato: number
-    proteina_creactiva: number
     leucocitos: number
     patologias_presentes: string
-    horario?: Date | string
+    presion_arterial: number
+    procalcitonina: number
+    proteina_creactiva: number
+    saturacion_oxigeno: number
+    temperatura_corporal: number
     pacienteId: number
   }
 
@@ -7047,64 +7047,64 @@ export namespace Prisma {
   }
 
   export type SignosVitalesUpdateWithoutResultadosInput = {
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
     frecuencia_cardiaca?: FloatFieldUpdateOperationsInput | number
-    presion_arterial?: FloatFieldUpdateOperationsInput | number
     frecuencia_respiratoria?: FloatFieldUpdateOperationsInput | number
-    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
-    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
-    procalcitonina?: FloatFieldUpdateOperationsInput | number
     lactato?: FloatFieldUpdateOperationsInput | number
-    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    presion_arterial?: FloatFieldUpdateOperationsInput | number
+    procalcitonina?: FloatFieldUpdateOperationsInput | number
+    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
+    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
+    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
     paciente?: PacientesUpdateOneRequiredWithoutSignosNestedInput
   }
 
   export type SignosVitalesUncheckedUpdateWithoutResultadosInput = {
     id?: IntFieldUpdateOperationsInput | number
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
     frecuencia_cardiaca?: FloatFieldUpdateOperationsInput | number
-    presion_arterial?: FloatFieldUpdateOperationsInput | number
     frecuencia_respiratoria?: FloatFieldUpdateOperationsInput | number
-    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
-    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
-    procalcitonina?: FloatFieldUpdateOperationsInput | number
     lactato?: FloatFieldUpdateOperationsInput | number
-    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    presion_arterial?: FloatFieldUpdateOperationsInput | number
+    procalcitonina?: FloatFieldUpdateOperationsInput | number
+    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
+    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
+    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
     pacienteId?: IntFieldUpdateOperationsInput | number
   }
 
   export type SignosVitalesCreateWithoutPacienteInput = {
+    horario?: Date | string
     frecuencia_cardiaca: number
-    presion_arterial: number
     frecuencia_respiratoria: number
-    temperatura_corporal: number
-    saturacion_oxigeno: number
-    procalcitonina: number
     lactato: number
-    proteina_creactiva: number
     leucocitos: number
     patologias_presentes: string
-    horario?: Date | string
+    presion_arterial: number
+    procalcitonina: number
+    proteina_creactiva: number
+    saturacion_oxigeno: number
+    temperatura_corporal: number
     resultados?: ResultadoCreateNestedManyWithoutSignoVitalInput
   }
 
   export type SignosVitalesUncheckedCreateWithoutPacienteInput = {
     id?: number
+    horario?: Date | string
     frecuencia_cardiaca: number
-    presion_arterial: number
     frecuencia_respiratoria: number
-    temperatura_corporal: number
-    saturacion_oxigeno: number
-    procalcitonina: number
     lactato: number
-    proteina_creactiva: number
     leucocitos: number
     patologias_presentes: string
-    horario?: Date | string
+    presion_arterial: number
+    procalcitonina: number
+    proteina_creactiva: number
+    saturacion_oxigeno: number
+    temperatura_corporal: number
     resultados?: ResultadoUncheckedCreateNestedManyWithoutSignoVitalInput
   }
 
@@ -7139,17 +7139,17 @@ export namespace Prisma {
     OR?: SignosVitalesScalarWhereInput[]
     NOT?: SignosVitalesScalarWhereInput | SignosVitalesScalarWhereInput[]
     id?: IntFilter<"SignosVitales"> | number
+    horario?: DateTimeFilter<"SignosVitales"> | Date | string
     frecuencia_cardiaca?: FloatFilter<"SignosVitales"> | number
-    presion_arterial?: FloatFilter<"SignosVitales"> | number
     frecuencia_respiratoria?: FloatFilter<"SignosVitales"> | number
-    temperatura_corporal?: FloatFilter<"SignosVitales"> | number
-    saturacion_oxigeno?: FloatFilter<"SignosVitales"> | number
-    procalcitonina?: FloatFilter<"SignosVitales"> | number
     lactato?: FloatFilter<"SignosVitales"> | number
-    proteina_creactiva?: FloatFilter<"SignosVitales"> | number
     leucocitos?: FloatFilter<"SignosVitales"> | number
     patologias_presentes?: StringFilter<"SignosVitales"> | string
-    horario?: DateTimeFilter<"SignosVitales"> | Date | string
+    presion_arterial?: FloatFilter<"SignosVitales"> | number
+    procalcitonina?: FloatFilter<"SignosVitales"> | number
+    proteina_creactiva?: FloatFilter<"SignosVitales"> | number
+    saturacion_oxigeno?: FloatFilter<"SignosVitales"> | number
+    temperatura_corporal?: FloatFilter<"SignosVitales"> | number
     pacienteId?: IntFilter<"SignosVitales"> | number
   }
 
@@ -7174,63 +7174,63 @@ export namespace Prisma {
 
   export type SignosVitalesCreateManyPacienteInput = {
     id?: number
+    horario?: Date | string
     frecuencia_cardiaca: number
-    presion_arterial: number
     frecuencia_respiratoria: number
-    temperatura_corporal: number
-    saturacion_oxigeno: number
-    procalcitonina: number
     lactato: number
-    proteina_creactiva: number
     leucocitos: number
     patologias_presentes: string
-    horario?: Date | string
+    presion_arterial: number
+    procalcitonina: number
+    proteina_creactiva: number
+    saturacion_oxigeno: number
+    temperatura_corporal: number
   }
 
   export type SignosVitalesUpdateWithoutPacienteInput = {
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
     frecuencia_cardiaca?: FloatFieldUpdateOperationsInput | number
-    presion_arterial?: FloatFieldUpdateOperationsInput | number
     frecuencia_respiratoria?: FloatFieldUpdateOperationsInput | number
-    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
-    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
-    procalcitonina?: FloatFieldUpdateOperationsInput | number
     lactato?: FloatFieldUpdateOperationsInput | number
-    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    presion_arterial?: FloatFieldUpdateOperationsInput | number
+    procalcitonina?: FloatFieldUpdateOperationsInput | number
+    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
+    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
+    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
     resultados?: ResultadoUpdateManyWithoutSignoVitalNestedInput
   }
 
   export type SignosVitalesUncheckedUpdateWithoutPacienteInput = {
     id?: IntFieldUpdateOperationsInput | number
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
     frecuencia_cardiaca?: FloatFieldUpdateOperationsInput | number
-    presion_arterial?: FloatFieldUpdateOperationsInput | number
     frecuencia_respiratoria?: FloatFieldUpdateOperationsInput | number
-    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
-    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
-    procalcitonina?: FloatFieldUpdateOperationsInput | number
     lactato?: FloatFieldUpdateOperationsInput | number
-    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    presion_arterial?: FloatFieldUpdateOperationsInput | number
+    procalcitonina?: FloatFieldUpdateOperationsInput | number
+    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
+    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
+    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
     resultados?: ResultadoUncheckedUpdateManyWithoutSignoVitalNestedInput
   }
 
   export type SignosVitalesUncheckedUpdateManyWithoutPacienteInput = {
     id?: IntFieldUpdateOperationsInput | number
+    horario?: DateTimeFieldUpdateOperationsInput | Date | string
     frecuencia_cardiaca?: FloatFieldUpdateOperationsInput | number
-    presion_arterial?: FloatFieldUpdateOperationsInput | number
     frecuencia_respiratoria?: FloatFieldUpdateOperationsInput | number
-    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
-    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
-    procalcitonina?: FloatFieldUpdateOperationsInput | number
     lactato?: FloatFieldUpdateOperationsInput | number
-    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
     leucocitos?: FloatFieldUpdateOperationsInput | number
     patologias_presentes?: StringFieldUpdateOperationsInput | string
-    horario?: DateTimeFieldUpdateOperationsInput | Date | string
+    presion_arterial?: FloatFieldUpdateOperationsInput | number
+    procalcitonina?: FloatFieldUpdateOperationsInput | number
+    proteina_creactiva?: FloatFieldUpdateOperationsInput | number
+    saturacion_oxigeno?: FloatFieldUpdateOperationsInput | number
+    temperatura_corporal?: FloatFieldUpdateOperationsInput | number
   }
 
 
