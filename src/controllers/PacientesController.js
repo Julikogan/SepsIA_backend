@@ -39,3 +39,27 @@ export const registrarPaciente = async (req, res) => {
     res.status(500).json({ error: 'Error al registrar paciente' })
   }
 }
+
+export const actualizarPaciente = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({ error: 'Falta el ID del paciente' });
+    }
+
+    const idNumber = Number(id);
+    if (isNaN(idNumber)) {
+      return res.status(400).json({ error: 'El ID del paciente no es válido' });
+    }
+
+    const pacienteActualizado = await actualizarPacienteService(idNumber);
+
+    return res.status(200).json({
+      message: 'Paciente actualizado con éxito',
+      pacienteActualizado
+    });
+  } catch (err) {
+    console.error('Error al actualizar paciente:', err);
+    return res.status(500).json({ error: 'Error al actualizar datos del paciente' });
+  }
+};
