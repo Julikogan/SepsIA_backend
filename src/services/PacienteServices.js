@@ -18,7 +18,7 @@ export const actualizarPacienteService = async (id) => {
   return await prisma.pacientes.update({
     where: { id},
     data: {
-      dateTime_out: new Date(),
+      ingreso_paciente: new Date(),
     }
   });
 };

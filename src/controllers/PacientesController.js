@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { crearPaciente } from '../services/PacienteServices.js'
+import { actualizarPacienteService } from '../services/PacienteServices.js';
 
 export const registrarPaciente = async (req, res) => {
   try {
