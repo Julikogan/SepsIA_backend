@@ -1,11 +1,17 @@
-import { enviarDatosIA } from '../services/IAServices.js';
+import iaService from "../services/IAServices.js";
 
-export const analizarDatosPaciente = async (req, res) => {
+export const analizarSignos = async (req, res) => {
   try {
-    const datosPaciente = req.body;
-    const resultadoIA = await enviarDatosIA(datosPaciente);
-    res.status(200).json({ resultado: resultadoIA });
+    const { pacienteId } = req.params;
+
+    const resultado = await iaService.analizarSignosVitales(pacienteId);
+
+    res.json({
+      message: "Resultado almacenado correctamente",
+      data: resultado
+    });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("Error en analizarSignos:", error);
+    res.status(500).json({ error: "Error al analizar signos vitales" });
   }
 };

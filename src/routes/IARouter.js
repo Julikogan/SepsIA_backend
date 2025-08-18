@@ -1,8 +1,9 @@
-import express from 'express';
-import { analizarDatosPaciente } from '../controllers/IAController.js';
+import { Router } from "express";
+import { analizarSignos } from "../controllers/IAController.js";
 
-const router = express.Router();
+const router = Router();
 
-router.post('/analizar', analizarDatosPaciente);
+// POST /ia/analizar/:pacienteId
+router.post("/analizar/:pacienteId", analizarSignos);
 
 export default router;
