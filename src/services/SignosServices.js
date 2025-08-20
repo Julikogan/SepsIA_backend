@@ -21,7 +21,7 @@ export const crearSignoVital = async (signoVitalData) => {
     throw new Error(`No se encontró paciente con DNI ${pacienteDni}`);
   }
 
-  // Crear signo vital
+  //Crear signo vital
   const nuevoRegistro = await prisma.signosVitales.create({
     data: {
       frecuencia_cardiaca: signoVitalData.frecuencia_cardiaca,
@@ -38,51 +38,46 @@ export const crearSignoVital = async (signoVitalData) => {
     }
   });
 
-  // Llamar al modelo de IA
-  (async () => {
-    try {
-      const response = await axios.post('https://sepsia-visual.onrender.com/analizar', {
-        frecuencia_cardiaca: signoVitalData.frecuencia_cardiaca,
-        presion_arterial: signoVitalData.presion_arterial,
-        frecuencia_respiratoria: signoVitalData.frecuencia_respiratoria,
-        temperatura_corporal: signoVitalData.temperatura_corporal,
-        saturacion_oxigeno: signoVitalData.saturacion_oxigeno,
-        procalcitonina: signoVitalData.procalcitonina,
-        lactato: signoVitalData.lactato,
-        proteina_creactiva: signoVitalData.proteina_creactiva,
-        leucocitos: signoVitalData.leucocitos,
-        patologias_presentes: signoVitalData.patologias_presentes
+  try {
+    //Llamar al modelo de IA
+    const response = await axios.post('https://sepsia-visual.onrender.com/analizar', {
+      frecuencia_cardiaca: signoVitalData.frecuencia_cardiaca,
+      presion_arterial: signoVitalData.presion_arterial,
+      frecuencia_respiratoria: signoVitalData.frecuencia_respiratoria,
+      temperatura_corporal: signoVitalData.temperatura_corporal,
+      saturacion_oxigeno: signoVitalData.saturacion_oxigeno,
+      procalcitonina: signoVitalData.procalcitonina,
+      lactato: signoVitalData.lactato,
+      proteina_creactiva: signoVitalData.proteina_creactiva,
+      leucocitos: signoVitalData.leucocitos,
+      patologias_presentes: signoVitalData.patologias_presentes
+    });
+
+    //Extraer el valor float del resultado
+    const valorIA = parseFloat(response.data.resultado);
+    if (isNaN(valorIA)) {
+      console.error('Valor de IA no es un número válido:', response.data);
+    } else {
+      //Guardar en la tabla Resultado
+      const resultadoGuardado = await prisma.resultado.create({
+        data: {
+          resultado: valorIA,
+          signoVitalId: nuevoRegistro.id
+        }
       });
 
-      // Extraer el valor float del resultado
-      const valorIA = parseFloat(response.data.resultado);
-
-      if (isNaN(valorIA)) {
-        console.error('Valor de IA no es un número válido:', response.data);
-        return;
-      }
-
-      // Guardar en la tabla Resultado
-    const resultadoGuardado = await prisma.resultado.create({
-    data: {
-    resultado: valorIA,
-    signoVitalId: nuevoRegistro.id
+      console.log('Resultado guardado en DB:', resultadoGuardado);
     }
-   });
 
-  console.log('Resultado guardado en DB:', resultadoGuardado);
-
-
-    } catch (err) {
-      if (err.response) {
-        console.error('Error de la IA:', err.response.status, err.response.data);
-      } else if (err.request) {
-        console.error('No hubo respuesta de la IA:', err.request);
-      } else {
-        console.error('Error interno de Axios:', err.message);
-      }
+  } catch (err) {
+    if (err.response) {
+      console.error('Error de la IA:', err.response.status, err.response.data);
+    } else if (err.request) {
+      console.error('No hubo respuesta de la IA:', err.request);
+    } else {
+      console.error('Error interno de Axios:', err.message);
     }
-  })();
+  }
 
   return nuevoRegistro;
 };

@@ -3,7 +3,6 @@ import cors from 'cors';
 
 import signosRoutes from './routes/SignosRouter.js';
 import resultadosRoutes from './routes/ResultadosRouter.js';
-import iaRouter from './routes/IARouter.js';
 import pacientesRoutes from './routes/PacientesRouter.js';
 
 import dotenv from 'dotenv';
@@ -24,7 +23,6 @@ app.use(express.urlencoded({ extended: true }));
 // Definir rutas
 app.use('/signos-vitales', signosRoutes);
 app.use('/resultados', resultadosRoutes);
-app.use('/ia', iaRouter);
 app.use('/pacientes', pacientesRoutes);
 
 // Root route
