@@ -1,8 +1,30 @@
 import { PrismaClient } from '../generated/prisma/client.js';
-const prisma = new PrismaClient();
+
+const prisma = new PrismaClient(); //
 
 export const crearSignoVital = async (signoVitalData) => {
-  return await prisma.signosVitales.create({ 
+  if (!signoVitalData.pacienteDni) {
+    throw new Error("Debe enviarse el DNI del paciente");
+  }
+
+  // Convertir DNI a número
+  const pacienteDni = parseInt(signoVitalData.pacienteDni.toString().trim(), 10);
+
+  if (isNaN(pacienteDni) || pacienteDni <= 0) {
+    throw new Error("El DNI del paciente no es válido");
+  }
+
+  // Buscar paciente por DNI
+  const paciente = await prisma.pacientes.findUnique({
+    where: { dni: pacienteDni }
+  });
+
+  if (!paciente) {
+    throw new Error(`No se encontró paciente con DNI ${pacienteDni}`);
+  }
+
+  // Crear signo vital usando pacienteId
+  return await prisma.signosVitales.create({
     data: {
       frecuencia_cardiaca: signoVitalData.frecuencia_cardiaca,
       presion_arterial: signoVitalData.presion_arterial,
@@ -15,7 +37,9 @@ export const crearSignoVital = async (signoVitalData) => {
       leucocitos: signoVitalData.leucocitos,
       patologias_presentes: signoVitalData.patologias_presentes,
       horario: new Date(),
-      id_paciente: signoVitalData.id_paciente
-    } 
+      paciente: {
+        connect: { id: paciente.id }
+      }
+    }
   });
 };

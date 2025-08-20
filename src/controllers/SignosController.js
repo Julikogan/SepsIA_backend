@@ -14,7 +14,7 @@ export const registrarSignosVitales = async (req, res) => {
       proteina_creactiva,
       leucocitos,
       patologias_presentes,
-      /*id_paciente*/
+      pacienteDni   
      } = req.body
 // Validar datos obligatorios
     if (
@@ -27,9 +27,9 @@ export const registrarSignosVitales = async (req, res) => {
       !lactato ||
       !proteina_creactiva ||
       !leucocitos ||
-      !patologias_presentes
-      /*!id_paciente*/
-     ) {
+      !patologias_presentes ||
+      !pacienteDni
+    ) {
       return res.status(400).json({ error: 'Faltan datos obligatorios' });
     }
     
@@ -47,7 +47,7 @@ export const registrarSignosVitales = async (req, res) => {
         proteina_creactiva,
         leucocitos,
         patologias_presentes,
-        /*id_paciente,*/
+        pacienteDni 
       }
     )
 
