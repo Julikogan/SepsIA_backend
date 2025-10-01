@@ -4,6 +4,7 @@ import cors from 'cors';
 import signosRoutes from './routes/SignosRouter.js';
 import resultadosRoutes from './routes/ResultadosRouter.js';
 import pacientesRoutes from './routes/PacientesRouter.js';
+import authRoutes from "./routes/authRouter.js";
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/signos-vitales', signosRoutes);
 app.use('/resultados', resultadosRoutes);
 app.use('/pacientes', pacientesRoutes);
+app.use("/auth", authRoutes);
 
 // Root route
 app.get('/', (req, res) => {
