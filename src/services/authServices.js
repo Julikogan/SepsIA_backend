@@ -1,9 +1,11 @@
-import { prisma } from "../prismaClient.js";
+import { PrismaClient } from "../generated/prisma/client.js";
+
+const prisma = new PrismaClient();
 
 export const crearUsuario = async (data) => {
-  return prisma.usuario.create({ data });
+  return prisma.user.create({ data });
 };
 
 export const buscarUsuarioPorEmail = async (email) => {
-  return prisma.usuario.findUnique({ where: { email } });
+  return prisma.user.findUnique({ where: { email } });
 };
