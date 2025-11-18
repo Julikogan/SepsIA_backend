@@ -22,3 +22,7 @@ export const actualizarPacienteService = async (id) => {
     }
   });
 };
+
+export const obtenerPacientesService = async () => {
+  return await prisma.pacientes.findMany(); // Obtiene todos los registros de la tabla 'pacientes'
+};

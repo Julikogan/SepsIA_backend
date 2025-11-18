@@ -1,6 +1,5 @@
 import axios from 'axios'
-import { crearPaciente } from '../services/PacienteServices.js'
-import { actualizarPacienteService } from '../services/PacienteServices.js';
+import {crearPaciente, actualizarPacienteService, obtenerPacientesService} from '../services/PacienteServices.js'
 
 export const registrarPaciente = async (req, res) => {
   try {
@@ -62,5 +61,21 @@ export const actualizarPaciente = async (req, res) => {
   } catch (err) {
     console.error('Error al actualizar paciente:', err);
     return res.status(500).json({ error: 'Error al actualizar datos del paciente' });
+  }
+};
+
+export const obtenerPacientes = async (req, res) => {
+  try {
+    const pacientes = await obtenerPacientesService();
+    
+    // Si no hay pacientes, se puede retornar un 204 No Content o un 200 con un array vacío.
+    if (pacientes.length === 0) {
+      return res.status(204).send(); // 204 No Content
+    }
+
+    return res.status(200).json(pacientes);
+  } catch (err) {
+    console.error('Error al obtener pacientes:', err);
+    return res.status(500).json({ error: 'Error al obtener el listado de pacientes' });
   }
 };
