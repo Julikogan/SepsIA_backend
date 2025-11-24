@@ -13,16 +13,24 @@ export const crearPaciente = async (pacienteData) => {
     } 
   });
 };
+export const actualizarPacienteService = async (id, data) => {
+  console.log("ID recibido en el service:", id);
+  console.log("DATA recibido en el service:", data);
 
-export const actualizarPacienteService = async (id) => {
+  const existe = await prisma.pacientes.findUnique({
+    where: { id }
+  });
+
+  if (!existe) {
+    throw new Error("Paciente no encontrado");
+  }
+
   return await prisma.pacientes.update({
-    where: { id},
-    data: {
-      ingreso_paciente: new Date(),
-    }
+    where: { id },
+    data
   });
 };
 
 export const obtenerPacientesService = async () => {
-  return await prisma.pacientes.findMany(); // Obtiene todos los registros de la tabla 'pacientes'
+  return await prisma.pacientes.findMany();
 };

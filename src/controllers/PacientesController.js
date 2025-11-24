@@ -10,7 +10,7 @@ export const registrarPaciente = async (req, res) => {
         dni, 
         habitacion
      } = req.body
-// Validar datos obligatorios
+
     if (
       !nombre ||
       !sexo ||
@@ -43,16 +43,31 @@ export const registrarPaciente = async (req, res) => {
 export const actualizarPaciente = async (req, res) => {
   try {
     const { id } = req.params;
+    const idNumber = Number(id);
+
     if (!id) {
       return res.status(400).json({ error: 'Falta el ID del paciente' });
     }
 
-    const idNumber = Number(id);
     if (isNaN(idNumber)) {
       return res.status(400).json({ error: 'El ID del paciente no es válido' });
     }
 
-    const pacienteActualizado = await actualizarPacienteService(idNumber);
+    const { nombre, sexo, edad, dni, habitacion } = req.body;
+
+    const data = {};
+    if (nombre !== undefined) data.nombre = nombre;
+    if (sexo !== undefined) data.sexo = sexo;
+    if (edad !== undefined) data.edad = edad;
+    if (dni !== undefined) data.dni = dni;
+    if (habitacion !== undefined) data.habitacion = habitacion;
+
+    data.ingreso_paciente = new Date();
+
+    console.log("ID recibido en el controller:", idNumber);
+    console.log("DATA ENVIADO AL SERVICE:", data);
+
+    const pacienteActualizado = await actualizarPacienteService(idNumber, data);
 
     return res.status(200).json({
       message: 'Paciente actualizado con éxito',
@@ -60,7 +75,7 @@ export const actualizarPaciente = async (req, res) => {
     });
   } catch (err) {
     console.error('Error al actualizar paciente:', err);
-    return res.status(500).json({ error: 'Error al actualizar datos del paciente' });
+    return res.status(500).json({ error: err.message || 'Error al actualizar paciente' });
   }
 };
 
@@ -68,9 +83,8 @@ export const obtenerPacientes = async (req, res) => {
   try {
     const pacientes = await obtenerPacientesService();
     
-    // Si no hay pacientes, se puede retornar un 204 No Content o un 200 con un array vacío.
     if (pacientes.length === 0) {
-      return res.status(204).send(); // 204 No Content
+      return res.status(204).send();
     }
 
     return res.status(200).json(pacientes);
